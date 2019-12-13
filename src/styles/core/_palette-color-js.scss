@@ -1,0 +1,67 @@
+.theme-colors1 {
+
+    .card__box--text {
+        border-color: $color-dirty-blue ;
+
+    }
+    .card__name {
+        color: $color-dark-green-blue;
+    }
+    .card__job-title {
+        color: $color-gun-metal;
+    }
+    .item {
+        border-color: $color-hospital-green;
+    }
+}
+
+.theme-colors2 {
+
+    .card__box--text {
+        border-color: $color-rusty-red;
+
+    }
+    .card__name {
+        color: $color-dried-blood;
+    }
+    .card__job-title {
+        color: $color-dried-blood;
+    }
+    .item {
+        border-color: $color-tomato;
+    }
+}
+
+.theme-colors3 {
+
+    .card__box--text {
+        border-color: $color-faded-orange;
+
+    }
+    .card__name {
+        color: $color-slate;
+    }
+    .card__job-title {
+        color: $color-slate;
+    }
+    .item {
+        border-color: $color-light-grey-blue;
+    }
+}
+
+.theme-colors4 {
+
+    .card__box--text {
+        border-color: $color-pink-coco;
+
+    }
+    .card__name {
+        color: $color-blue-coco;
+    }
+    .card__job-title {
+        color: $color-blue-coco;
+    }
+    .item {
+        border-color: $color-yelow-coco;
+    }
+}

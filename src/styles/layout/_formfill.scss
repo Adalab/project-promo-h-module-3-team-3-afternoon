@@ -1,0 +1,96 @@
+.form__fill{
+    border: none;
+    padding: 0;
+    border-bottom: 1px solid $color-white-two;
+
+    .fill--title{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .contain-title{
+            display: flex;
+            align-items: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            @include tablet {
+                padding-bottom: 7px;
+             }
+            .fa-keyboard{
+                height: 16px;
+                color: $color-orange;   
+            }
+            .title__h3{  
+                font-weight: 500;
+                font-family: $font-family-general;
+                color: $color-gun-metal;
+                font-size: rem(18);
+                text-transform: uppercase;
+                width: 78px;
+                padding-left: 10px;
+                margin: 0;
+            }
+            .fa-chevron-down{
+                color: $color-gun-metal;  
+            }
+        }   
+    } 
+    .fill--inputs{
+        display:flex;
+        flex-direction: column;
+        
+        .label{ 
+            color:$color-dark-green-blue;
+            font-size: rem(14);
+            font-family: $font-family-general;     
+        }
+        .label.email{
+                margin-top: 20px;
+            } 
+        .input{
+            color:$color-gun-metal;
+            font-family: $font-family-general;
+            font-size: rem(14);
+            height: 30px;
+            margin-top: 7px;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+        .button-image{
+            display:grid;
+            grid-template-columns:  1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            .label img{
+                grid-row: 1;
+                grid-column: 1;
+            }
+            .btn{
+                background-color: $color-orange;
+                color: $color-white;
+                border-radius: 3px;
+                border: none;
+                height: 30px;
+                width: 140px;
+                box-shadow: 0 0 4px 0 rgba (0, 0, 0, 0.32);
+                grid-row: 2;
+                grid-column: 1;
+                cursor: pointer;
+            } 
+            .square{
+                width: 30px;
+                height: 30px;
+                border: 1px solid $color-hospital-green; 
+                grid-row: 2;
+                grid-column: 2;
+                margin-left: 15px;
+                //background-image: url('../images/imelda.png');
+                background-size: cover
+               
+            }
+            .action__hiddenField {
+                /* Ocultamos el input de tipo "file" porque no podemos 
+                darle los estilos que queremos */
+                display: none;
+            }
+        }   
+    }
+}

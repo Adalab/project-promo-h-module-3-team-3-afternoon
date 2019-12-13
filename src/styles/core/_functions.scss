@@ -1,0 +1,13 @@
+// Esta es la variable que usaremos como tamaño por defecto
+$defaultFontSize: 16;
+
+// la función acepta un número de pixels (los que vayamos a usar). Y nos devuelve el cálculo en unidades 'rem' :)
+@function rem($pixels) {
+    @return ( $pixels / $defaultFontSize * 1rem );
+}
+
+/*
+@function calculate-percentage($target-size, $parent-size) {
+    @return (($target-size / $parent-size) * 100%);
+  }
+  */

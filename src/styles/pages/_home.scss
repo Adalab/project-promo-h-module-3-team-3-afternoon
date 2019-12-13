@@ -1,0 +1,125 @@
+/*---CONTAINER-MAIN--*/
+.container-head-main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-white-smoke;
+    flex-grow: 1;
+}
+
+
+/*---LOGO--*/
+.head__awesome-img{
+    margin-top: 95px;
+    width: 250px;
+    height: 63px;
+    @include tablet{
+        margin-top: 83px;
+        width: 419px;
+        height: 105px;
+     }
+}
+
+/*--MAIN--*/
+.page__main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/*---TEXTS--*/
+.main__title{
+    margin-top: 35.4px;
+    margin-bottom: 17.8px;
+    text-align: center;
+    @include tablet{
+        margin-top: 31px;
+        margin-bottom: 27px;
+    }
+}
+.title__text{
+    color: $color-orange;
+    font-family: $font-family-landing;
+    font-size: rem(19.2);
+    font-weight: 900;
+    @include text-capitalize;
+    margin: 0;
+    @include tablet{
+        font-size: rem(24);
+    }
+}
+
+.title_paragraph{
+    width: 264.8px;
+    color: $color-dark-green-blue;
+    margin: 0px;
+    font-family: $font-family-general;
+    font-size: rem(12.8);
+    @include text-capitalize;
+    margin: 0;
+    @include tablet{
+        font-size: rem(16);
+        width: 331px;
+    }
+}
+
+
+/*---ICONS--*/
+.main__icons{
+    border: 1.6px solid $color-orange-opacity;
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 268px;
+    height: 73.8px;
+    align-items: center;
+    text-align: center;
+    
+    @include tablet{
+        width: 325px;
+        height: 86px;
+    }
+
+    .main__img{
+        font-size: rem(22.4);
+        color: $color-orange;
+        @include tablet{
+            font-size: rem(28);
+        }
+    }
+
+    .main_text-item{
+        margin-top: 0px;
+        margin-bottom: 0px;
+        color: $color-gun-metal;
+        font-family: $font-family-general;
+        font-size: rem(12.8);
+        @include text-capitalize;
+        @include tablet{
+            font-size: rem(16);
+        }
+    }    
+}
+
+/*---LINK-START--*/
+.main__link{
+    margin: 60px 0;
+    padding:10px 20px;
+    border-radius: 21px;
+    background-color: $color-dirty-blue;
+    font-family: $font-family-general;
+    font-size: rem(16);
+    color: $color-white;
+    text-transform: uppercase;
+    transition: transform 2s;  
+    font-weight: 600;   
+    
+    &:hover{
+        color: $color-white;
+        background-color: $color-orange;
+        transform: rotateY(130deg);
+    }
+}
+

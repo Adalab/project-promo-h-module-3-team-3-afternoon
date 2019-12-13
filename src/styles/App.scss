@@ -1,38 +1,22 @@
-.App {
-  text-align: center;
-}
+/* vendors*/
+@import 'vendors/normalize';
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* core */
+@import 'core/variables';
+@import 'core/mixins';
+@import 'core/functions';
+@import 'core/palette-color-js';
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+/*layout*/
+@import 'layout/base';
+@import 'layout/header';
+@import 'layout/formdesign';
+@import 'layout/formshare';
+@import 'layout/footer';
+@import 'layout/cardpreview';
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+/*pages*/
+@import 'pages/home';
+@import 'layout/formfill';
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

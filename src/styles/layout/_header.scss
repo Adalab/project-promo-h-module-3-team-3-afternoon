@@ -1,0 +1,17 @@
+
+.header{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    
+    // &__wrapper{
+    // padding:30px 79px 31px 40px;
+    // }
+    &__image{
+        width: 201px;
+    }
+    
+    @include tablet{ 
+     display:block;
+    }
+}

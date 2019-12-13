@@ -1,0 +1,134 @@
+.form{
+    width: 100%;
+    background-image: linear-gradient(to bottom, $color-white-smoke, $color-white 9%);
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 auto;
+    color:$color-gun-metal;
+    @include tablet{
+        width: 50%;
+        padding-left: 40px;
+        padding-right: 30px;
+        margin-top: 20px;
+    }
+    @include desktop {
+        width: 25%;
+        min-width: 350px;
+    }
+
+}
+
+.form__design{
+    border: none;
+    padding: 0;
+    border-bottom: 1px solid $color-white-two;
+    .form__desing--title{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+       
+    }
+    
+    .form__contain--title{
+        display: flex;
+        flex-direction: row;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        @include tablet {
+            padding-bottom: 7px;
+         }
+        .form__title{
+            text-transform: uppercase;
+            font-size: rem(18);
+            font-weight: 500;
+            margin: 0;
+            padding-left: 10px;
+        }
+        .form__img{
+            width: 21px;
+            color:$color-orange;
+        }
+    }
+
+
+}
+
+.palette__container{
+    padding-top: 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    p{
+        text-transform: uppercase;
+        font-size: rem(14);
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-left: 19px;
+    }
+    .palette{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+
+
+.palette__color--general{
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    .palette__color{
+        width: 30px;
+        height: 25px;
+        &.blue1{
+            background-color: $color-dark-green-blue;
+        }
+        &.blue2{
+            background-color: $color-dirty-blue;
+        }
+        &.blue3{
+            background-color: $color-hospital-green;
+        }
+        &.red1{
+            background-color: $color-dried-blood;
+        }
+        &.red2{
+            background-color: $color-rusty-red;
+        }
+        &.red3{
+            background-color: $color-tomato;
+        }
+        &.yellow1{
+            background-color: $color-slate;
+        }
+        &.yellow2{
+            background-color: $color-faded-orange;
+        }
+        &.yellow3{
+            background-color: $color-light-grey-blue;
+        }
+        &.coco1{
+            background-color: $color-blue-coco;
+        }
+        &.coco2{
+            background-color: $color-pink-coco;
+        }
+        &.coco3{
+            background-color: $color-yelow-coco;
+        }
+    }
+            
+}
+
+
+//para JS
+
+.animate{
+    transform: rotate(180deg);
+}
+
+
+

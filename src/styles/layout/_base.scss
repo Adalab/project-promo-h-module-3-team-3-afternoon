@@ -1,0 +1,39 @@
+html{
+    font-size: 16px;
+    font-family: $font-family-general;
+}
+
+.page{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main{
+    background-image:linear-gradient(to bottom, $color-white-smoke, $color-white 9%);
+    @include tablet{
+    display: flex;
+    flex-direction: row-reverse;
+    }
+}
+.hidden {
+    display: none;
+}
+
+.click-arrow{
+    transition: transform 3s;
+    &:hover{
+        color: $color-orange;
+    }
+}
+
+
+.collapsible{
+    .collapsible-container{
+        display: none;    
+    }
+}
+
+.collapsible-header{
+    cursor: pointer;
+}
