@@ -1,4 +1,5 @@
 import React from 'react';
+import Logo from '../images/awesome-cards.svg';
 
 class Landing extends React.Component {
     render() {
@@ -6,7 +7,7 @@ class Landing extends React.Component {
         <main class="page__main">
             <div class="head__awesome-logo">
                 <a href="https://github.com/Adalab/project-promo-h-module-2-team-4-afternoon">
-                    <img class="head__awesome-img" src="./assets/images/awesome-cards (1).png" alt="Logo Awesome Cards"></img>
+                    <img class="head__awesome-img" src={Logo} alt="Logo Awesome Cards"></img>
                 </a>
             </div>
             <div class="main__title">
