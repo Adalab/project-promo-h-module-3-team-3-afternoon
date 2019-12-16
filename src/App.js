@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles/App.scss';
+
 import Landing from './components/Landing';
 import Footer from './components/Footer';
 
@@ -13,5 +14,4 @@ class App extends React.Component {
     );
   }
 }
-
 export default App;

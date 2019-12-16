@@ -113,13 +113,12 @@
     font-size: rem(16);
     color: $color-white;
     text-transform: uppercase;
-    transition: transform 2s;  
+    transition: all 0.4s ease-in; 
     font-weight: 600;   
     
     &:hover{
-        color: $color-white;
         background-color: $color-orange;
-        transform: rotateY(130deg);
+        box-sizing: border-box;
     }
 }
 
