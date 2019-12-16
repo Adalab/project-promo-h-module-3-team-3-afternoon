@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/App.scss';
-import Landing from './components/Landing';
+import App from './App';
 
-ReactDOM.render(<Landing />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
