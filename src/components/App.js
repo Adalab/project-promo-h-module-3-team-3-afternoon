@@ -1,8 +1,8 @@
 import React from 'react';
-import './styles/App.scss';
+import '../styles/App.scss';
 
-import Landing from './components/Landing';
-import Footer from './components/Footer';
+import Landing from './Landing';
+import Footer from './Footer';
 
 class App extends React.Component {
   render() {
