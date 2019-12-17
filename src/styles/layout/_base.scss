@@ -16,9 +16,9 @@ html{
     flex-direction: row-reverse;
     }
 }
-.hidden {
-    display: none;
-}
+// .hidden {
+//     display: none;
+// }
 
 .click-arrow{
     transition: transform 3s;
@@ -28,11 +28,11 @@ html{
 }
 
 
-.collapsible{
-    .collapsible-container{
-        display: none;    
-    }
-}
+// .collapsible{
+//     .collapsible-container{
+//         display: none;    
+//     }
+// }
 
 .collapsible-header{
     cursor: pointer;
