@@ -3,13 +3,16 @@ import '../styles/App.scss';
 
 import Landing from './Landing';
 import Footer from './Footer';
+import CardMaker from './CardMaker';
+import Header from './Header';
 
 class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <Landing />
-        <Footer />
+      <div className="page">
+        <Header />
+        <CardMaker/>
+        <Footer/>
       </div>
     );
   }

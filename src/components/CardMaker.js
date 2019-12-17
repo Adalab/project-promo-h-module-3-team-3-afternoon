@@ -7,11 +7,13 @@ import Share from './Share';
 
 const CardMaker = () => {
     return(
-        <main class="main">
+        <main className="main">
             <Preview/>
-            <Design/>
-            <Fill/>
-            <Share/>
+            <form className="form" action="" method="POST">
+                <Design/>
+                <Fill/>
+                <Share/>
+            </form>
         </main>
     );
 }
