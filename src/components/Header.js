@@ -3,8 +3,8 @@ import Logo from '../images/awesome-cards.svg';
 
 const Header = () => {
     return (
-        <header className="header">
-            <div className="header__wrapper">
+        <header>
+            <div className="header">
                 <a href="./index.html">
                     <img src={Logo} alt="Inicio" className="header__image" />
                 </a>

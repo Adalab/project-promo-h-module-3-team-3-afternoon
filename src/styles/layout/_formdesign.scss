@@ -15,20 +15,17 @@
         width: 25%;
         min-width: 350px;
     }
-
 }
 
 .form__design{
     border: none;
     padding: 0;
     border-bottom: 1px solid $color-white-two;
-    .form__desing--title{
+    .form__design--title{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-       
     }
-    
     .form__contain--title{
         display: flex;
         flex-direction: row;
@@ -36,7 +33,7 @@
         padding-bottom: 10px;
         @include tablet {
             padding-bottom: 7px;
-         }
+        }
         .form__title{
             text-transform: uppercase;
             font-size: rem(18);
@@ -49,8 +46,6 @@
             color:$color-orange;
         }
     }
-
-
 }
 
 .palette__container{
@@ -71,8 +66,6 @@
         align-items: center;
     }
 }
-
-
 
 .palette__color--general{
     display: flex;
@@ -110,22 +103,9 @@
         &.yellow3{
             background-color: $color-light-grey-blue;
         }
-        &.coco1{
-            background-color: $color-blue-coco;
-        }
-        &.coco2{
-            background-color: $color-pink-coco;
-        }
-        &.coco3{
-            background-color: $color-yelow-coco;
-        }
     }
-            
 }
-
-
 //para JS
-
 .animate{
     transform: rotate(180deg);
 }
