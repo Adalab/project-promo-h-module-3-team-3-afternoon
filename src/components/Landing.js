@@ -29,7 +29,7 @@ const Landing = () => {
                     <p className="main_text-item">comparte</p>
                 </li>
             </ul>
-            <Link className="main__link" to="/Home">comenzar</Link>
+            <Link className="main__link" to="/Editor">comenzar</Link>
         </main>
     );
 }

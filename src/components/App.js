@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/App.scss';
 import Landing from './Landing';
 import { Route, Switch } from 'react-router-dom'
-import Home from './Home';
+import Editor from './Editor';
 
 class App extends React.Component {
   render() {
@@ -10,7 +10,7 @@ class App extends React.Component {
       <div className="App">
         <Switch>
           <Route exact path="/" component={Landing} />
-          <Route exact path="/Home" component={Home} />
+          <Route exact path="/Editor" component={Editor} />
         </Switch>
       </div >
     )

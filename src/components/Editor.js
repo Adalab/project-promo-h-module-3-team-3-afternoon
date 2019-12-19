@@ -4,7 +4,7 @@ import Header from './Header';
 import CardMaker from './CardMaker';
 import Footer from './Footer';
 
-class Home extends React.Component {
+class Editor extends React.Component {
     render() {
         return (
             <div className="Main">
@@ -18,4 +18,4 @@ class Home extends React.Component {
     }
 }
 
-export default Home;
+export default Editor;
