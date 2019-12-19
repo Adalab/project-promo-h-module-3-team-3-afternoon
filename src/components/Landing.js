@@ -1,5 +1,6 @@
 import React from 'react';
 import Logo from '../images/awesome-cards.svg';
+import { Link } from 'react-router-dom';
 
 const Landing = () => {
     return (
@@ -28,8 +29,7 @@ const Landing = () => {
                     <p className="main_text-item">comparte</p>
                 </li>
             </ul>
-
-            <a className="main__link" href="./cardpage.html">comenzar</a>
+            <Link className="main__link" to="/Home">comenzar</Link>
         </main>
     );
 }
