@@ -9,9 +9,9 @@ class Editor extends React.Component {
         return (
             <div className="Main">
                 <Header></Header>
-                <form>
-                    <CardMaker></CardMaker>
-                </form>
+                
+                <CardMaker></CardMaker>
+                
                 <Footer></Footer>
             </div >
         )

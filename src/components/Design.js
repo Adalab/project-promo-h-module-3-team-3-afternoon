@@ -1,16 +1,20 @@
 import React from 'react';
+import Collapsibles from './Collapsibles';
 
-const Design = () => {
-    return (
-        <fieldset id="form_design" className="form__design collapsible">
-            <div className="form__design--title collapsible-header">
-                <div className="form__contain--title">
-                    <i className="form__img far fa-object-ungroup"></i>
-                    <h3 className="form__title">diseña</h3>
-                </div>
-                <i className="fas fa-chevron-down design__img-arrow click-arrow" id="arrow-design"></i>
-            </div>
-            <div className="palette__container collapsible-container" id="first-form">
+class Design extends React.Component{
+    constructor(props){
+        super(props)
+    }
+
+    render(){
+        return(
+            <Collapsibles
+                category="design"
+                lowerSection="palette__container"
+                sectionTitle="diseña"
+                icon="far fa-object-ungroup"
+
+            >
                 <p>colores</p>
                 <div className="color_selected">
 
@@ -44,8 +48,9 @@ const Design = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-        </fieldset>
-    );
+            </Collapsibles>
+        )
+    }
 }
+
 export default Design;

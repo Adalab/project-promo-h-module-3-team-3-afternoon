@@ -1,20 +1,4 @@
-.form{
-    width: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin: 0 auto;
-    color:$color-gun-metal;
-    @include tablet{
-        width: 50%;
-        padding-left: 40px;
-        padding-right: 30px;
-        margin-top: 20px;
-    }
-    @include desktop {
-        width: 25%;
-        min-width: 350px;
-    }
-}
+
 
 .form__design{
     border: none;
