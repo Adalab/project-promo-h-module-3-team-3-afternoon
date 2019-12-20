@@ -11,29 +11,15 @@ class CardMaker extends React.Component {
         this.state = {
             userName: '',
             position: '',
-            paletteValue: '1'
+            paletteValue: '1',
+            email: false,
+            phone: false,
+            linkedin: false,
+            github: false
         };
         this.handleNameChange = this.handleNameChange.bind(this);
         this.handlePaletteChange = this.handlePaletteChange.bind(this);
-    }
-
-    handleNameChange(name, value){
-        this.setState((prevState,props) => {
-            let newUserName = prevState.userName;
-            let newPosition = prevState.position;
-
-            if(name === 'userName'){
-                newUserName = value;
-            }
-            if(name ==='position'){
-                newPosition = value;
-            }
-
-            return {
-                userName: newUserName,
-                position: newPosition
-            }
-        })
+        this.handleLinksChange = this.handleLinksChange.bind(this);
     }
 
     handlePaletteChange(checkedPaletteValue){
@@ -56,6 +42,58 @@ class CardMaker extends React.Component {
         })
     }
 
+    handleNameChange(name, value){
+        this.setState((prevState,props) => {
+            let newUserName = prevState.userName;
+            let newPosition = prevState.position;
+
+            if(name === 'userName'){
+                newUserName = value;
+            }
+            if(name ==='position'){
+                newPosition = value;
+            }
+
+            return {
+                userName: newUserName,
+                position: newPosition
+            }
+        })
+    }
+
+    handleLinksChange(target){
+        this.setState((prevState,props) => {
+            let newEmail = prevState.email;
+            let newPhone = prevState.phone;
+            let newLinkedin = prevState.linkedin;
+            let newGithub = prevState.github;
+
+            if(target.name === 'email' && target.value !== ''){
+                newEmail = true;
+                return {email: newEmail}
+            }
+            if(target.name === 'phone' && target.value !== ''){
+                newPhone = true;
+                return {phone: newPhone}
+            }
+            if(target.name === 'linkedin' && target.value !== ''){
+                newLinkedin = true;
+                return {linkedin: newLinkedin}
+            }
+            if(target.name === 'github' && target.value !== ''){
+                newGithub = true;
+                return {github: newGithub}
+            }
+
+            // return {
+            //     email: newEmail,
+            //     phone: newPhone,
+            //     linkedin: newLinkedin,
+            //     github: newGithub
+            // }
+        })  
+    }
+
     render() {
         return (
             <main className="main">
@@ -63,6 +101,10 @@ class CardMaker extends React.Component {
                     userName={this.state.userName}
                     position={this.state.position}
                     paletteValue={this.state.paletteValue}
+                    email={this.state.email}
+                    phone={this.state.phone}
+                    linkedin={this.state.linkedin}
+                    github={this.state.github}
                 />
                 <form className="form" action="" method="POST">
                     <Design 
@@ -70,8 +112,10 @@ class CardMaker extends React.Component {
                     />
                     <Fill 
                         handleNameChange={this.handleNameChange}
+                        handleLinksChange={this.handleLinksChange}
                     />
-                    <Share />
+                    <Share 
+                    />
                 </form>
             </main>
         );

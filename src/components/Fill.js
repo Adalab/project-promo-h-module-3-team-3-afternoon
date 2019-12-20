@@ -6,9 +6,14 @@ class Fill extends React.Component {
         super(props);
         this.state = {
             userName: '',
-            position: ''
+            position: '',
+            email: false,
+            phone: false,
+            linkedin: false,
+            github: false
         };
         this.handleNameChange = this.handleNameChange.bind(this);
+        this.handleLinksChange = this.handleLinksChange.bind(this);
     }
 
     handleNameChange(event){
@@ -16,6 +21,11 @@ class Fill extends React.Component {
         const value = target.value;
         const name = target.name;
         this.props.handleNameChange(name, value);
+    }
+
+    handleLinksChange(event){
+        const target = event.target;
+        this.props.handleLinksChange(target);
     }
 
     render() {
@@ -41,18 +51,18 @@ class Fill extends React.Component {
                     </div>
 
                     <label className="label email" htmlFor="email">Email <span className="asterisk">*</span></label>
-                    <input className="input able email" type="email" id="email" placeholder="Ej:sally-hill@gmail.com" name="email"/>
+                    <input className="input able email" type="email" id="email" placeholder="Ej:sally-hill@gmail.com" name="email" onChange={this.handleLinksChange}/>
 
                     <label className="label phone" htmlFor="phone">Teléfono</label>
-                    <input className="input able phone" type="number" pattern="" id="phone" placeholder="Ej:555-55-55-55"/>
+                    <input className="input able phone" type="number" pattern="" id="phone" placeholder="Ej:555-55-55-55" name="phone" onChange={this.handleLinksChange}/>
 
 
                     <label className="label linkedin" htmlFor="linkedin">Linkedin <span className="asterisk">*</span></label>
                     <input className="input able linkedin" type="url" id="linkedin" placeholder="Ej: sally.hill" name="linkedin"
-                        required/>
+                        required onChange={this.handleLinksChange}/>
 
                     <label className="label github" htmlFor="git">Github <span className="asterisk">*</span></label>
-                    <input className="input able github" type="text" id="git" placeholder="Ej:sally-hill" name="github"/>
+                    <input className="input able github" type="text" id="git" placeholder="Ej:sally-hill" name="github" onChange={this.handleLinksChange}/>
                 </div>
             </Collapsibles>
         );
