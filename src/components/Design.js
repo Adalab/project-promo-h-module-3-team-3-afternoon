@@ -12,7 +12,7 @@ class Design extends React.Component{
                 category="design"
                 lowerSection="palette__container"
                 sectionTitle="diseña"
-                icon="fa-object-ungroup"
+                icon="far fa-object-ungroup"
 
             >
                 <p>colores</p>

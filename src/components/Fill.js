@@ -11,7 +11,7 @@ class Fill extends React.Component {
             <Collapsibles
                 category="fill"
                 sectionTitle="rellena"
-                icon="fa-keyboard"
+                icon="far fa-keyboard"
             >
                 <div className="fill--inputs">
                     <label className="label name" htmlFor="name">Nombre completo <span className="asterisk">*</span></label>

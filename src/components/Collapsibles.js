@@ -26,10 +26,10 @@ class Collapsibles extends React.Component{
 
     render(){
         return(
-            <fieldset id={`form_${this.props.category}`} className={`form__${this.props.category} collapsible`}>
-            <div className={`form__${this.props.category}--title collapsible-header`} onClick={this.collapseSection}>
+            <fieldset className="form__header">
+            <div className="form__title" onClick={this.collapseSection}>
                 <div className="form__contain--title">
-                    <i className={`form__img far ${this.props.icon}`}></i>
+                    <i className={`form__img ${this.props.icon}`}></i>
                     <h3 className="form__title">{this.props.sectionTitle}</h3>
                 </div>
                 <i className="fas fa-chevron-down design__img-arrow click-arrow"></i>
@@ -47,3 +47,5 @@ Collapsibles.defaultProps={
 }
 
 export default Collapsibles;
+
+
