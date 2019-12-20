@@ -21,29 +21,41 @@
     padding: 0;
     border-bottom: 1px solid $color-white-two;
     cursor: pointer;
+
     .form__title{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-    }
-    .form__contain--title{
-        display: flex;
-        flex-direction: row;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        @include tablet {
-            padding-bottom: 7px;
+
+        .form__contain--title{
+            display: flex;
+            flex-direction: row;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            @include tablet {
+                padding-bottom: 7px;
+            }
+            .form__title{
+                text-transform: uppercase;
+                font-size: rem(18);
+                font-weight: 500;
+                margin: 0;
+                padding-left: 10px;
+            }
+            .form__img{
+                width: 21px;
+                color:$color-orange;
+            }
         }
-        .form__title{
-            text-transform: uppercase;
-            font-size: rem(18);
-            font-weight: 500;
-            margin: 0;
-            padding-left: 10px;
+        
+        &:hover > .click-arrow{
+            color: $color-orange;
         }
-        .form__img{
-            width: 21px;
-            color:$color-orange;
+        .click-arrow{
+            transition: transform 0.5s;
+            &:hover{
+                color: $color-orange;
+            }
         }
     }
 }
