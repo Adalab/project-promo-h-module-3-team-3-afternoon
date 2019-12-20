@@ -16,9 +16,6 @@ class Fill extends React.Component {
         const value = target.value;
         const name = target.name;
         this.props.handleNameChange(name, value);
-        this.setState({
-            [name]: value 
-        })
     }
 
     render() {
