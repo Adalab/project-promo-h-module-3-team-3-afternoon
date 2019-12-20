@@ -1,17 +1,11 @@
-
 .header{
     display:flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    
-    // &__wrapper{
-    // padding:30px 79px 31px 40px;
-    // }
+    width: 100vw;
+    height: 111px;
     &__image{
         width: 201px;
-    }
-    
-    @include tablet{ 
-     display:block;
+        margin-left: 40px;
     }
 }

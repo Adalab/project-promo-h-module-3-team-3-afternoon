@@ -1,39 +1,5 @@
-.form__fill{
-    border: none;
-    padding: 0;
-    border-bottom: 1px solid $color-white-two;
-
-    .fill--title{
-        display:flex;
-        flex-direction: row;
-        justify-content: space-between;
-        .contain-title{
-            display: flex;
-            align-items: center;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            @include tablet {
-                padding-bottom: 7px;
-             }
-            .fa-keyboard{
-                height: 16px;
-                color: $color-orange;   
-            }
-            .title__h3{  
-                font-weight: 500;
-                font-family: $font-family-general;
-                color: $color-gun-metal;
-                font-size: rem(18);
-                text-transform: uppercase;
-                width: 78px;
-                padding-left: 10px;
-                margin: 0;
-            }
-            .fa-chevron-down{
-                color: $color-gun-metal;  
-            }
-        }   
-    } 
+.form__header{
+    
     .fill--inputs{
         display:flex;
         flex-direction: column;
@@ -41,7 +7,14 @@
         .label{ 
             color:$color-dark-green-blue;
             font-size: rem(14);
-            font-family: $font-family-general;     
+            font-family: $font-family-general; 
+            
+            .asterisk{
+                color: $color-orange;
+            }
+        }
+        .label.name{
+            margin-top: 10px;
         }
         .label.email{
                 margin-top: 20px;
