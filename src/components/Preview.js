@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Preview = () =>{
+const Preview = props =>{
     return(
         <section className="page__cardpreview">
             <div className="card__preview">
@@ -8,8 +8,8 @@ const Preview = () =>{
                     <button className="card__reset"><i className="far fa-trash-alt"></i>Reset</button>
                     <div className="card__box--header">
                         <div className="card__box--text">
-                            <h3 className="card__name">Nombre Apellido</h3>
-                            <p className="card__job-title">Front-end developer</p>
+                            <h3 className="card__name">{props.userName === '' ? 'Nombre Apellido' : props.userName}</h3>
+                            <p className="card__job-title">{props.position === '' ? 'Front-end developer' : props.position}</p>
                         </div>
                     </div>
                     <div className="card__photo js__profile-image"></div>

@@ -7,7 +7,11 @@
         .label{ 
             color:$color-dark-green-blue;
             font-size: rem(14);
-            font-family: $font-family-general;     
+            font-family: $font-family-general; 
+            
+            .asterisk{
+                color: $color-orange;
+            }
         }
         .label.name{
             margin-top: 10px;
