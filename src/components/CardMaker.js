@@ -10,9 +10,11 @@ class CardMaker extends React.Component {
         super(props);
         this.state = {
             userName: '',
-            position: ''
+            position: '',
+            paletteValue: '1'
         };
         this.handleNameChange = this.handleNameChange.bind(this);
+        this.handlePaletteChange = this.handlePaletteChange.bind(this);
     }
 
     handleNameChange(name, value){
@@ -34,15 +36,38 @@ class CardMaker extends React.Component {
         })
     }
 
+    handlePaletteChange(checkedPaletteValue){
+
+        this.setState((prevState,props) => {
+            let newPaletteValue = prevState.paletteValue;
+            if(checkedPaletteValue === '1'){
+                newPaletteValue = '1'
+            }
+            if(checkedPaletteValue === '2'){
+                newPaletteValue = '2'
+            }
+            if(checkedPaletteValue === '3'){
+                newPaletteValue = '3'
+            }
+
+            return {
+                paletteValue: newPaletteValue
+            }
+        })
+    }
+
     render() {
         return (
             <main className="main">
                 <Preview 
                     userName={this.state.userName}
                     position={this.state.position}
+                    paletteValue={this.state.paletteValue}
                 />
                 <form className="form" action="" method="POST">
-                    <Design />
+                    <Design 
+                        handlePaletteChange={this.handlePaletteChange}
+                    />
                     <Fill 
                         handleNameChange={this.handleNameChange}
                     />
