@@ -4,6 +4,21 @@ import Collapsibles from './Collapsibles';
 class Fill extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            userName: '',
+            position: ''
+        };
+        this.handleNameChange = this.handleNameChange.bind(this);
+    }
+
+    handleNameChange(event){
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
+        this.props.handleNameChange(name, value);
+        this.setState({
+            [name]: value 
+        })
     }
 
     render() {
@@ -15,10 +30,10 @@ class Fill extends React.Component {
             >
                 <div className="fill--inputs">
                     <label className="label name" htmlFor="name">Nombre completo <span className="asterisk">*</span></label>
-                    <input className="input able name" type="text" id="name" placeholder="Ej: Sally Jill" name="name"/>
+                    <input className="input able name" type="text" id="name" placeholder="Ej: Sally Jill" name="userName" onChange={this.handleNameChange}/>
 
                     <label className="label position" htmlFor="position">Puesto <span className="asterisk">*</span></label>
-                    <input className="input able position" type="text" id="position" placeholder="Ej: Front-end" name="job"/>
+                    <input className="input able position" type="text" id="position" placeholder="Ej: Front-end" name="position" onChange={this.handleNameChange}/>
 
                     <div className="button-image">
                         <label className="label img" htmlFor="image">Imagen de perfil <span className="asterisk">*</span></label>
