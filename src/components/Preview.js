@@ -1,10 +1,24 @@
 import React from 'react';
 
 const Preview = props =>{
+
+    let paletteValue = props.paletteValue;
+    const selectTheme = props => {
+        if(paletteValue === '1'){
+            return ' theme-colors1'
+        }
+        if(paletteValue === '2'){
+            return ' theme-colors2'
+        }
+        if(paletteValue === '3'){
+            return ' theme-colors3'
+        }
+    } 
+
     return(
         <section className="page__cardpreview">
             <div className="card__preview">
-                <div className="card__box">
+                <div className={`card__box ${selectTheme()}`}>
                     <button className="card__reset"><i className="far fa-trash-alt"></i>Reset</button>
                     <div className="card__box--header">
                         <div className="card__box--text">
