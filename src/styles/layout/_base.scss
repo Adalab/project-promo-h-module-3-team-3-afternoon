@@ -20,13 +20,6 @@ html{
     display: none !important;
 }
 
-.click-arrow{
-    transition: transform 3s;
-    &:hover{
-        color: $color-orange;
-    }
-}
-
 
 .collapsible{
     .collapsible-container{
@@ -36,4 +29,8 @@ html{
 
 .collapsible-header{
     cursor: pointer;
+}
+
+.animate{
+    transform: rotate(180deg);
 }

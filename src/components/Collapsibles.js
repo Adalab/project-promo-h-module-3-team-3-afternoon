@@ -32,7 +32,7 @@ class Collapsibles extends React.Component{
                     <i className={`form__img ${this.props.icon}`}></i>
                     <h3 className="form__title">{this.props.sectionTitle}</h3>
                 </div>
-                <i className="fas fa-chevron-down design__img-arrow click-arrow"></i>
+                <i className={`fas fa-chevron-down design__img-arrow click-arrow ${this.state.open === true ? ' animate' : ''}`}></i>
             </div>
             <div className={`${this.props.lowerSection} ${this.state.toggleClass}`}>
                 {this.props.children}
