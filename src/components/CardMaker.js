@@ -42,56 +42,18 @@ class CardMaker extends React.Component {
         })
     }
 
-    handleNameChange(name, value){
-        this.setState((prevState,props) => {
-            let newUserName = prevState.userName;
-            let newPosition = prevState.position;
-
-            if(name === 'userName'){
-                newUserName = value;
-            }
-            if(name ==='position'){
-                newPosition = value;
-            }
-
-            return {
-                userName: newUserName,
-                position: newPosition
-            }
-        })
+    handleNameChange(target){
+        this.setState({
+            [target.name]: target.value
+        });
     }
 
     handleLinksChange(target){
-        this.setState((prevState,props) => {
-            let newEmail = prevState.email;
-            let newPhone = prevState.phone;
-            let newLinkedin = prevState.linkedin;
-            let newGithub = prevState.github;
-
-            if(target.name === 'email' && target.value !== ''){
-                newEmail = true;
-                return {email: newEmail}
-            }
-            if(target.name === 'phone' && target.value !== ''){
-                newPhone = true;
-                return {phone: newPhone}
-            }
-            if(target.name === 'linkedin' && target.value !== ''){
-                newLinkedin = true;
-                return {linkedin: newLinkedin}
-            }
-            if(target.name === 'github' && target.value !== ''){
-                newGithub = true;
-                return {github: newGithub}
-            }
-
-            // return {
-            //     email: newEmail,
-            //     phone: newPhone,
-            //     linkedin: newLinkedin,
-            //     github: newGithub
-            // }
-        })  
+        if(target.value !== ''){
+            this.setState({
+                [target.name]: true
+            })
+        }
     }
 
     render() {

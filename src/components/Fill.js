@@ -18,9 +18,7 @@ class Fill extends React.Component {
 
     handleNameChange(event){
         const target = event.target;
-        const value = target.value;
-        const name = target.name;
-        this.props.handleNameChange(name, value);
+        this.props.handleNameChange(target);
     }
 
     handleLinksChange(event){
