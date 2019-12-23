@@ -3,6 +3,7 @@ import Preview from './Preview';
 import Design from './Design';
 import Fill from './Fill';
 import Share from './Share';
+import defaultImage from './defaultImage';
 
 
 class CardMaker extends React.Component {
@@ -15,11 +16,16 @@ class CardMaker extends React.Component {
             email: false,
             phone: false,
             linkedin: false,
-            github: false
+            github: false,
+            isAvatarDefault: true,
+            profile: {
+              avatar: defaultImage
+            }
         };
         this.handleNameChange = this.handleNameChange.bind(this);
         this.handlePaletteChange = this.handlePaletteChange.bind(this);
         this.handleLinksChange = this.handleLinksChange.bind(this);
+        this.updateAvatar = this.updateAvatar.bind(this);
     }
 
     handlePaletteChange(checkedPaletteValue){
@@ -56,7 +62,19 @@ class CardMaker extends React.Component {
         }
     }
 
+    updateAvatar(img) {
+        const {profile} = this.state;
+        this.setState(prevState => {
+          const newProfile = {...profile, avatar: img};
+          return {
+            profile: newProfile,
+            isAvatarDefault: false
+          }
+        });
+    };
+
     render() {
+        const {profile, isAvatarDefault} = this.state;
         return (
             <main className="main">
                 <Preview 
@@ -67,6 +85,7 @@ class CardMaker extends React.Component {
                     phone={this.state.phone}
                     linkedin={this.state.linkedin}
                     github={this.state.github}
+                    avatar={profile.avatar} 
                 />
                 <form className="form" action="" method="POST">
                     <Design 
@@ -75,6 +94,9 @@ class CardMaker extends React.Component {
                     <Fill 
                         handleNameChange={this.handleNameChange}
                         handleLinksChange={this.handleLinksChange}
+                        avatar={profile.avatar} 
+                        isAvatarDefault={isAvatarDefault} 
+                        updateAvatar={this.updateAvatar} 
                     />
                     <Share 
                     />

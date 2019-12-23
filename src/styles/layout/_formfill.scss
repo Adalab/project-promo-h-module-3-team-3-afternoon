@@ -29,13 +29,12 @@
             align-items: flex-start;
         }
         .button-image{
-            display:grid;
-            grid-template-columns:  1fr 1fr;
-            grid-template-rows: 1fr 1fr;
-            .label img{
-                grid-row: 1;
-                grid-column: 1;
+
+            .get-avatar{
+                display: flex;
+                margin-top: 10px;
             }
+
             .btn{
                 background-color: $color-orange;
                 color: $color-white;
@@ -44,16 +43,12 @@
                 height: 30px;
                 width: 140px;
                 box-shadow: 0 0 4px 0 rgba (0, 0, 0, 0.32);
-                grid-row: 2;
-                grid-column: 1;
                 cursor: pointer;
             } 
             .square{
                 width: 30px;
                 height: 30px;
-                border: 1px solid $color-hospital-green; 
-                grid-row: 2;
-                grid-column: 2;
+                border: 1px solid $color-hospital-green;
                 margin-left: 15px;
                 background-image: url('../../images/default-avatar.png');
                 background-size: cover

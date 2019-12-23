@@ -1,5 +1,6 @@
 import React from 'react';
 import Collapsibles from './Collapsibles';
+import GetAvatar from './GetAvatar';
 
 class Fill extends React.Component {
     constructor(props) {
@@ -34,10 +35,15 @@ class Fill extends React.Component {
 
                     <div className="button-image">
                         <label className="label img" htmlFor="image">Imagen de perfil <span className="asterisk">*</span></label>
-                        <button className="btn js__profile-trigger" type="button" id="upload-image">Añadir imagen</button>
+                        <GetAvatar
+                            avatar={this.props.avatar} 
+                            isAvatarDefault={this.props.isAvatarDefault} 
+                            updateAvatar={this.props.updateAvatar}
+                        />
+                        {/* <button className="btn js__profile-trigger" type="button" id="upload-image">Añadir imagen</button>
                         <input type="file" name="photo" id="img-selector"
                             className="btn action__hiddenField js__profile-upload-btn" />
-                        <div className="square js__profile-preview"></div>
+                        <div className="square js__profile-preview"></div> */}
                     </div>
 
                     <label className="label email" htmlFor="email">Email <span className="asterisk">*</span></label>
