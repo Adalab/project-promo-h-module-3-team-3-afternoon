@@ -4,14 +4,6 @@ import Collapsibles from './Collapsibles';
 class Fill extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            userName: '',
-            position: '',
-            email: false,
-            phone: false,
-            linkedin: false,
-            github: false
-        };
         this.handleNameChange = this.handleNameChange.bind(this);
         this.handleLinksChange = this.handleLinksChange.bind(this);
     }
@@ -52,7 +44,7 @@ class Fill extends React.Component {
                     <input className="input able email" type="email" id="email" placeholder="Ej:sally-hill@gmail.com" name="email" onChange={this.handleLinksChange}/>
 
                     <label className="label phone" htmlFor="phone">Teléfono</label>
-                    <input className="input able phone" type="number" pattern="" id="phone" placeholder="Ej:555-55-55-55" name="phone" onChange={this.handleLinksChange}/>
+                    <input className="input able phone" type="tel" id="phone" placeholder="Ej:555-55-55-55" name="phone" onChange={this.handleLinksChange}/>
 
 
                     <label className="label linkedin" htmlFor="linkedin">Linkedin <span className="asterisk">*</span></label>
