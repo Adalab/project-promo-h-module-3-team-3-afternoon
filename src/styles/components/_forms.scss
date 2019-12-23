@@ -59,3 +59,13 @@
         }
     }
 }
+
+.form-bottom{
+    max-height: 0px;
+    transition:max-height 0.5s; 
+    overflow:hidden;
+}
+
+.form-bottom-collapse{
+    max-height: 700px;
+}

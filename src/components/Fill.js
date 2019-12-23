@@ -22,6 +22,8 @@ class Fill extends React.Component {
     render() {
         return(
             <Collapsibles
+                collapseSection={this.props.collapseSection}
+                open={this.props.open}
                 category="fill"
                 sectionTitle="rellena"
                 icon="far fa-keyboard"

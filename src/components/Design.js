@@ -18,6 +18,8 @@ class Design extends React.Component{
     render(){
         return(
             <Collapsibles
+                collapseSection={this.props.collapseSection}
+                open={this.props.open}
                 category="design"
                 lowerSection="palette__container"
                 sectionTitle="diseña"
