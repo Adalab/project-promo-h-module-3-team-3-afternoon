@@ -11,29 +11,15 @@ class CardMaker extends React.Component {
         this.state = {
             userName: '',
             position: '',
-            paletteValue: '1'
+            paletteValue: '1',
+            email: false,
+            phone: false,
+            linkedin: false,
+            github: false
         };
         this.handleNameChange = this.handleNameChange.bind(this);
         this.handlePaletteChange = this.handlePaletteChange.bind(this);
-    }
-
-    handleNameChange(name, value){
-        this.setState((prevState,props) => {
-            let newUserName = prevState.userName;
-            let newPosition = prevState.position;
-
-            if(name === 'userName'){
-                newUserName = value;
-            }
-            if(name ==='position'){
-                newPosition = value;
-            }
-
-            return {
-                userName: newUserName,
-                position: newPosition
-            }
-        })
+        this.handleLinksChange = this.handleLinksChange.bind(this);
     }
 
     handlePaletteChange(checkedPaletteValue){
@@ -56,6 +42,20 @@ class CardMaker extends React.Component {
         })
     }
 
+    handleNameChange(target){
+        this.setState({
+            [target.name]: target.value
+        });
+    }
+
+    handleLinksChange(target){
+        if(target.value !== ''){
+            this.setState({
+                [target.name]: true
+            })
+        }
+    }
+
     render() {
         return (
             <main className="main">
@@ -63,6 +63,10 @@ class CardMaker extends React.Component {
                     userName={this.state.userName}
                     position={this.state.position}
                     paletteValue={this.state.paletteValue}
+                    email={this.state.email}
+                    phone={this.state.phone}
+                    linkedin={this.state.linkedin}
+                    github={this.state.github}
                 />
                 <form className="form" action="" method="POST">
                     <Design 
@@ -70,8 +74,10 @@ class CardMaker extends React.Component {
                     />
                     <Fill 
                         handleNameChange={this.handleNameChange}
+                        handleLinksChange={this.handleLinksChange}
                     />
-                    <Share />
+                    <Share 
+                    />
                 </form>
             </main>
         );
