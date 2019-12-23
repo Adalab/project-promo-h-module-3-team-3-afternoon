@@ -13,10 +13,10 @@ class CardMaker extends React.Component {
             userName: '',
             position: '',
             paletteValue: '1',
-            email: false,
-            phone: false,
-            linkedin: false,
-            github: false,
+            email: '',
+            phone: '',
+            linkedin: '',
+            github: '',
             isAvatarDefault: true,
             profile: {
               avatar: defaultImage
@@ -28,17 +28,17 @@ class CardMaker extends React.Component {
         this.updateAvatar = this.updateAvatar.bind(this);
     }
 
-    handlePaletteChange(checkedPaletteValue){
+    handlePaletteChange(checkedPaletteValue) {
 
-        this.setState((prevState,props) => {
+        this.setState((prevState, props) => {
             let newPaletteValue = prevState.paletteValue;
-            if(checkedPaletteValue === '1'){
+            if (checkedPaletteValue === '1') {
                 newPaletteValue = '1'
             }
-            if(checkedPaletteValue === '2'){
+            if (checkedPaletteValue === '2') {
                 newPaletteValue = '2'
             }
-            if(checkedPaletteValue === '3'){
+            if (checkedPaletteValue === '3') {
                 newPaletteValue = '3'
             }
 
@@ -48,18 +48,16 @@ class CardMaker extends React.Component {
         })
     }
 
-    handleNameChange(target){
+    handleNameChange(target) {
         this.setState({
             [target.name]: target.value
         });
     }
 
-    handleLinksChange(target){
-        if(target.value !== ''){
-            this.setState({
-                [target.name]: true
-            })
-        }
+    handleLinksChange(target) {
+        this.setState({
+            [target.name]: target.value
+        })
     }
 
     updateAvatar(img) {
@@ -77,7 +75,7 @@ class CardMaker extends React.Component {
         const {profile, isAvatarDefault} = this.state;
         return (
             <main className="main">
-                <Preview 
+                <Preview
                     userName={this.state.userName}
                     position={this.state.position}
                     paletteValue={this.state.paletteValue}
@@ -88,17 +86,17 @@ class CardMaker extends React.Component {
                     avatar={profile.avatar} 
                 />
                 <form className="form" action="" method="POST">
-                    <Design 
+                    <Design
                         handlePaletteChange={this.handlePaletteChange}
                     />
-                    <Fill 
+                    <Fill
                         handleNameChange={this.handleNameChange}
                         handleLinksChange={this.handleLinksChange}
                         avatar={profile.avatar} 
                         isAvatarDefault={isAvatarDefault} 
                         updateAvatar={this.updateAvatar} 
                     />
-                    <Share 
+                    <Share
                     />
                 </form>
             </main>
