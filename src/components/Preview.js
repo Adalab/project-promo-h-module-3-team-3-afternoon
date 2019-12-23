@@ -7,9 +7,7 @@ class Preview extends React.Component {
     }
 
     render() {
-        const {
-            props,
-        } = this;
+        const { props } = this;
 
         let paletteValue = props.paletteValue;
         const selectTheme = props => {

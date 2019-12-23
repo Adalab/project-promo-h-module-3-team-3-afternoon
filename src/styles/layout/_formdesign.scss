@@ -32,14 +32,14 @@
 }
 
 .palette__container{
-    padding: 18px 0 10px;
+    padding: 0px 0 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     p{
         text-transform: uppercase;
         font-size: rem(14);
-        margin-top: 0;
+        margin-top: 18px;
         margin-bottom: 0;
         padding-left: 19px;
     }

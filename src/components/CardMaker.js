@@ -10,6 +10,7 @@ class CardMaker extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            open: 'design',
             userName: '',
             position: '',
             paletteValue: '1',
@@ -22,10 +23,24 @@ class CardMaker extends React.Component {
               avatar: defaultImage
             }
         };
+        this.collapseSection = this.collapseSection.bind(this);
         this.handleNameChange = this.handleNameChange.bind(this);
         this.handlePaletteChange = this.handlePaletteChange.bind(this);
         this.handleLinksChange = this.handleLinksChange.bind(this);
         this.updateAvatar = this.updateAvatar.bind(this);
+    }
+
+    collapseSection(target){
+
+        if(this.state.open !== target.id){
+            this.setState({
+                open: target.id
+            })
+        } else {
+            this.setState({
+                open: ''
+            })
+        }
     }
 
     handlePaletteChange(checkedPaletteValue) {
@@ -87,9 +102,13 @@ class CardMaker extends React.Component {
                 />
                 <form className="form" action="" method="POST">
                     <Design
+                        collapseSection={this.collapseSection}
+                        open={this.state.open}
                         handlePaletteChange={this.handlePaletteChange}
                     />
                     <Fill
+                        collapseSection={this.collapseSection}
+                        open={this.state.open}
                         handleNameChange={this.handleNameChange}
                         handleLinksChange={this.handleLinksChange}
                         avatar={profile.avatar} 
@@ -97,6 +116,8 @@ class CardMaker extends React.Component {
                         updateAvatar={this.updateAvatar} 
                     />
                     <Share
+                        collapseSection={this.collapseSection}
+                        open={this.state.open}
                     />
                 </form>
             </main>
