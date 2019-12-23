@@ -12,27 +12,27 @@ class CardMaker extends React.Component {
             userName: '',
             position: '',
             paletteValue: '1',
-            email: false,
-            phone: false,
-            linkedin: false,
-            github: false
+            email: '',
+            phone: '',
+            linkedin: '',
+            github: ''
         };
         this.handleNameChange = this.handleNameChange.bind(this);
         this.handlePaletteChange = this.handlePaletteChange.bind(this);
         this.handleLinksChange = this.handleLinksChange.bind(this);
     }
 
-    handlePaletteChange(checkedPaletteValue){
+    handlePaletteChange(checkedPaletteValue) {
 
-        this.setState((prevState,props) => {
+        this.setState((prevState, props) => {
             let newPaletteValue = prevState.paletteValue;
-            if(checkedPaletteValue === '1'){
+            if (checkedPaletteValue === '1') {
                 newPaletteValue = '1'
             }
-            if(checkedPaletteValue === '2'){
+            if (checkedPaletteValue === '2') {
                 newPaletteValue = '2'
             }
-            if(checkedPaletteValue === '3'){
+            if (checkedPaletteValue === '3') {
                 newPaletteValue = '3'
             }
 
@@ -42,24 +42,22 @@ class CardMaker extends React.Component {
         })
     }
 
-    handleNameChange(target){
+    handleNameChange(target) {
         this.setState({
             [target.name]: target.value
         });
     }
 
-    handleLinksChange(target){
-        if(target.value !== ''){
-            this.setState({
-                [target.name]: true
-            })
-        }
+    handleLinksChange(target) {
+        this.setState({
+            [target.name]: target.value
+        })
     }
 
     render() {
         return (
             <main className="main">
-                <Preview 
+                <Preview
                     userName={this.state.userName}
                     position={this.state.position}
                     paletteValue={this.state.paletteValue}
@@ -69,14 +67,14 @@ class CardMaker extends React.Component {
                     github={this.state.github}
                 />
                 <form className="form" action="" method="POST">
-                    <Design 
+                    <Design
                         handlePaletteChange={this.handlePaletteChange}
                     />
-                    <Fill 
+                    <Fill
                         handleNameChange={this.handleNameChange}
                         handleLinksChange={this.handleLinksChange}
                     />
-                    <Share 
+                    <Share
                     />
                 </form>
             </main>
