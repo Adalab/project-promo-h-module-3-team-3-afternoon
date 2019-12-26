@@ -104,6 +104,7 @@ class CardMaker extends React.Component {
                     <Design
                         collapseSection={this.collapseSection}
                         open={this.state.open}
+                        paletteValue={this.state.paletteValue}
                         handlePaletteChange={this.handlePaletteChange}
                     />
                     <Fill
@@ -114,6 +115,13 @@ class CardMaker extends React.Component {
                         avatar={profile.avatar} 
                         isAvatarDefault={isAvatarDefault} 
                         updateAvatar={this.updateAvatar} 
+                        userName={this.state.userName}
+                        position={this.state.position}
+                        paletteValue={this.state.paletteValue}
+                        email={this.state.email}
+                        phone={this.state.phone}
+                        linkedin={this.state.linkedin}
+                        github={this.state.github}
                     />
                     <Share
                         collapseSection={this.collapseSection}

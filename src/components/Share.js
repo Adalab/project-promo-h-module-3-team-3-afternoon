@@ -22,7 +22,7 @@ class Share extends React.Component {
                     <p className="share__create--tittle btn">crear tarjeta</p>
                 </button>
                 <div className="errorMessage"></div>
-                <div className="form__create-link " id="share-div">
+                <div className="form__create-link  hidden" id="share-div">
                     <div className="share__create-card">
                         <p className="share__create-card--text">La tarjeta ha sido creada:</p>
                     </div>
