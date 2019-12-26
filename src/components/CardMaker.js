@@ -21,13 +21,22 @@ class CardMaker extends React.Component {
             isAvatarDefault: true,
             profile: {
               avatar: defaultImage
-            }
+            },
+            validUserName: '',
+            validPosition: '',
+            validAvatar: '',
+            validEmail: '',
+            validLinkedin: '',
+            validGithub: '',
+            isFormValid:''
         };
         this.collapseSection = this.collapseSection.bind(this);
         this.handleNameChange = this.handleNameChange.bind(this);
         this.handlePaletteChange = this.handlePaletteChange.bind(this);
         this.handleLinksChange = this.handleLinksChange.bind(this);
         this.updateAvatar = this.updateAvatar.bind(this);
+        this.validateForm = this.validateForm.bind(this);
+        this.isFormValid = this.isFormValid.bind(this);
     }
 
     collapseSection(target){
@@ -67,12 +76,42 @@ class CardMaker extends React.Component {
         this.setState({
             [target.name]: target.value
         });
+
+        if(target.name === 'userName' && target.value !== ''){
+            this.setState({
+                validUserName: true
+            })
+        }
+
+        if(target.name === 'position' && target.value !== ''){
+            this.setState({
+                validPosition: true
+            })
+        }
     }
 
     handleLinksChange(target) {
         this.setState({
             [target.name]: target.value
         })
+
+        if(target.name === 'email' && target.value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)){
+            this.setState({
+                validEmail: true
+            })
+        }
+
+        if(target.name === 'linkedin' && target.value !== ''){
+            this.setState({
+                validLinkedin: true
+            })
+        }
+
+        if(target.name === 'github' && target.value !== ''){
+            this.setState({
+                validGithub: true
+            })
+        }
     }
 
     updateAvatar(img) {
@@ -81,10 +120,61 @@ class CardMaker extends React.Component {
           const newProfile = {...profile, avatar: img};
           return {
             profile: newProfile,
-            isAvatarDefault: false
+            isAvatarDefault: false,
+            validAvatar: true
           }
         });
     };
+
+    validateForm(){
+        if(this.state.userName === ''){
+            this.setState({
+                validUserName: false
+            })
+        }
+        if(this.state.position === ''){
+            this.setState({
+                validPosition: false
+            })
+        }
+        if(this.state.isAvatarDefault === true){
+            this.setState({
+                validAvatar: false
+            })
+        }
+        if(this.state.email === '' || !this.state.email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)){
+            this.setState({
+                validEmail: false
+            })
+        }
+        if(this.state.linkedin === ''){
+            this.setState({
+                validLinkedin: false
+            })
+        }
+        if(this.state.github === ''){
+            this.setState({
+                validGithub: false
+            })
+        }
+
+        this.isFormValid()
+    }
+
+    isFormValid(){
+        if(
+            this.state.validUserName === true &&
+            this.state.validPosition === true &&
+            this.state.validAvatar === true &&
+            this.state.validEmail === true &&
+            this.state.validLinkedin === true &&
+            this.state.validGithub === true
+            ){
+                this.setState({
+                    isFormValid: true
+                })
+            }
+    }
 
     render() {
         const {profile, isAvatarDefault} = this.state;
@@ -122,10 +212,18 @@ class CardMaker extends React.Component {
                         phone={this.state.phone}
                         linkedin={this.state.linkedin}
                         github={this.state.github}
+                        validUserName={this.state.validUserName}
+                        validPosition={this.state.validPosition}
+                        validAvatar={this.state.validAvatar}
+                        validEmail={this.state.validEmail}
+                        validLinkedin={this.state.validLinkedin}
+                        validGithub={this.state.validGithub}
                     />
                     <Share
                         collapseSection={this.collapseSection}
                         open={this.state.open}
+                        validateForm={this.validateForm}
+                        isFormValid={this.state.isFormValid}
                     />
                 </form>
             </main>

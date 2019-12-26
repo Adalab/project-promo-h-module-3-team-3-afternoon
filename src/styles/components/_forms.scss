@@ -20,12 +20,12 @@
     border: none;
     padding: 0;
     border-bottom: 1px solid $color-white-two;
-    cursor: pointer;
 
     .form__title{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        cursor: pointer;
 
         .form__contain--title{
             display: flex;
