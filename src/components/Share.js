@@ -16,13 +16,14 @@ class Share extends React.Component {
                 sectionTitle="comparte"
                 icon="fas fa-share-alt"
                 lowerSection="share__create"
+                validateForm={this.props.validateForm}
             >
-                <button className="share__create--btn" type="button" id="share_btn">
+                <button className={`share__create--btn ${this.props.isFormValid === true ? '' : ' btn-disabled'}`} type="button" id="share_btn">
                     <i className="far fa-address-card"></i>
-                    <p className="share__create--tittle btn">crear tarjeta</p>
+                    <p className="share__create--title btn">crear tarjeta</p>
                 </button>
                 <div className="errorMessage"></div>
-                <div className="form__create-link " id="share-div">
+                <div className="form__create-link  hidden" id="share-div">
                     <div className="share__create-card">
                         <p className="share__create-card--text">La tarjeta ha sido creada:</p>
                     </div>

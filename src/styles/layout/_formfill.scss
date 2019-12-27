@@ -13,21 +13,35 @@
                 color: $color-orange;
             }
         }
+
         .label.name{
             margin-top: 10px;
         }
+
         .label.email{
-                margin-top: 20px;
-            } 
+            margin-top: 20px;
+        } 
+
         .input{
             color:$color-gun-metal;
+            padding: 0 5px;
             font-family: $font-family-general;
             font-size: rem(14);
             height: 30px;
             margin-top: 7px;
             margin-bottom: 20px;
             align-items: flex-start;
+
+            &:focus{
+                border: solid 2px $color-orange;
+                outline: none;
+            }
         }
+
+        .input-error{
+            border: 1px solid red;
+        }
+
         .button-image{
 
             .get-avatar{
@@ -54,11 +68,24 @@
                 background-size: cover
                
             }
+
             .action__hiddenField {
-                /* Ocultamos el input de tipo "file" porque no podemos 
-                darle los estilos que queremos */
                 display: none;
             }
         }   
     }
+
+    .error-message{
+        color: red;
+        font-size: rem(12);
+        margin: -12px 0 20px 0;
+    }
+
+    .error-image{
+        margin: 12px 0 0px 0;
+    }
+}
+
+.able {
+    border:1px solid $color-hospital-green;
 }

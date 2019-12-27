@@ -4,11 +4,19 @@ class Collapsibles extends React.Component{
     constructor(props){
         super(props);
         this.collapseSection = this.collapseSection.bind(this);
+        this.validateForm = this.validateForm.bind(this)
     }
 
     collapseSection(event){
         const target = event.target
         this.props.collapseSection(target)
+        this.validateForm();
+    }
+
+    validateForm(){
+        if(this.props.category === 'share'){
+            this.props.validateForm();
+        }
     }
 
     render(){

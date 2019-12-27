@@ -4,9 +4,6 @@ import Collapsibles from './Collapsibles';
 class Design extends React.Component{
     constructor(props){
         super(props);
-        this.state = {
-            paletteValue: '1'
-        }
         this.handlePaletteChange = this.handlePaletteChange.bind(this);
     }
 
@@ -31,7 +28,7 @@ class Design extends React.Component{
 
                     <div className="palette">
                         <label htmlFor="colorpalette1"></label>
-                        <input className="form-item" id="colorpalette1" type="radio" value="1" name="palette" onClick={this.handlePaletteChange}/>
+                        <input className="form-item" id="colorpalette1" type="radio" value="1" name="palette" onClick={this.handlePaletteChange} checked={this.props.paletteValue === '1' ? true : false}/>
                         <div className="palette__color--general">
                             <div className="palette__color blue1"></div>
                             <div className="palette__color blue2"></div>
@@ -41,7 +38,7 @@ class Design extends React.Component{
 
                     <div className="palette">
                         <label htmlFor="colorpalette2"></label>
-                        <input className="form-item" id="colorpalette2" type="radio" value="2" name="palette" onClick={this.handlePaletteChange}/>
+                        <input className="form-item" id="colorpalette2" type="radio" value="2" name="palette" onClick={this.handlePaletteChange} checked={this.props.paletteValue === '2' ? true : false}/>
                         <div className="palette__color--general">
                             <div className="palette__color red1"></div>
                             <div className="palette__color red2"></div>
@@ -51,7 +48,7 @@ class Design extends React.Component{
 
                     <div className="palette">
                         <label htmlFor="colorpalette3"></label>
-                        <input className="form-item" id="colorpalette3" type="radio" value="3" name="palette" onClick={this.handlePaletteChange}/>
+                        <input className="form-item" id="colorpalette3" type="radio" value="3" name="palette" onClick={this.handlePaletteChange} checked={this.props.paletteValue === '3' ? true : false}/>
                         <div className="palette__color--general">
                             <div className="palette__color yellow1"></div>
                             <div className="palette__color yellow2"></div>

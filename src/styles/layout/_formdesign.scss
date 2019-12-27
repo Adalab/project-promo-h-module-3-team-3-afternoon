@@ -1,41 +1,9 @@
-
-
-.form__design{
-    border: none;
-    padding: 0;
-    border-bottom: 1px solid $color-white-two;
-    .form__design--title{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    .form__contain--title{
-        display: flex;
-        flex-direction: row;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        @include tablet {
-            padding-bottom: 7px;
-        }
-        .form__title{
-            text-transform: uppercase;
-            font-size: rem(18);
-            font-weight: 500;
-            margin: 0;
-            padding-left: 10px;
-        }
-        .form__img{
-            width: 21px;
-            color:$color-orange;
-        }
-    }
-}
-
 .palette__container{
     padding: 0px 0 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
     p{
         text-transform: uppercase;
         font-size: rem(14);
@@ -43,6 +11,7 @@
         margin-bottom: 0;
         padding-left: 19px;
     }
+
     .palette{
         display: flex;
         flex-direction: row;
@@ -56,9 +25,11 @@
     margin-left: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
+
     .palette__color{
         width: 30px;
         height: 25px;
+
         &.blue1{
             background-color: $color-dark-green-blue;
         }
@@ -87,10 +58,6 @@
             background-color: $color-light-grey-blue;
         }
     }
-}
-//para JS
-.animate{
-    transform: rotate(180deg);
 }
 
 
