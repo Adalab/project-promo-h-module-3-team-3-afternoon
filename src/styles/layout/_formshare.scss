@@ -1,12 +1,14 @@
 .form__share{
     padding:0;
     border:none;
+
     &--wrapper{
         border-bottom: 1px solid $color-white-two;
         margin: 0;
         display:flex;
         flex-direction: column;
     }
+
     &--container{
         margin: 0px;
         display:flex;
@@ -32,6 +34,7 @@
         }
     }
 }
+
 .fa-share-alt {
     padding-left: 2px;
     color:$color-orange;
@@ -45,12 +48,14 @@
 .fa-chevron-down {
     padding-top: 14px;
 }
+
 .form__create-link {
     margin: 0; 
     display:flex;
     flex-direction: column;
     border-top: 1px solid $color-white-two;
 }
+
 .share__create{
     text-align: center;
 
@@ -82,48 +87,37 @@
         font-weight: 500;
     }
 }
+
 .share__create-card{
     text-align: center;
-        &--text{
-            text-align: center;
-            font-size: rem(18);
-            margin-top:20px;
-            margin-bottom: 5px;
-        }
-        &--link{
-            color:$color-orange;
-            font-size:12px;
-            margin:0;
-            cursor:pointer;
-        }
-        &--twitter{
-            text-align: center;
-            background-color:$color-azure;
-            color: $color-white;
-            border-radius:3px;
-            box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.32);
-            font-size:rem(14);
-            line-height: 20px;
-            width:181px;
-            padding:3px 9px 7px 3px;
-            margin-top:10px;
-            margin-bottom:30px;
-            align-self:center;    
-            cursor:pointer;
-        }
-}
 
-.error{
-    border: 1px solid red;
-}
-.able {
-    border:1px solid $color-hospital-green;
-}
-.disabled{
-background-color:$color-silver;
-cursor: none;
-}
-.errorMessage{
-    color: red;
-    text-align: center;   
+    &--text{
+        text-align: center;
+        font-size: rem(18);
+        margin-top:20px;
+        margin-bottom: 5px;
+    }
+
+    &--link{
+        color:$color-orange;
+        font-size:12px;
+        margin:0;
+        cursor:pointer;
+    }
+    
+    &--twitter{
+        text-align: center;
+        background-color:$color-azure;
+        color: $color-white;
+        border-radius:3px;
+        box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.32);
+        font-size:rem(14);
+        line-height: 20px;
+        width:181px;
+        padding:3px 9px 7px 3px;
+        margin-top:10px;
+        margin-bottom:30px;
+        align-self:center;    
+        cursor:pointer;
+    }
 }

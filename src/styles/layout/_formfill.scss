@@ -13,12 +13,15 @@
                 color: $color-orange;
             }
         }
+
         .label.name{
             margin-top: 10px;
         }
+
         .label.email{
-                margin-top: 20px;
-            } 
+            margin-top: 20px;
+        } 
+
         .input{
             color:$color-gun-metal;
             padding: 0 5px;
@@ -65,9 +68,8 @@
                 background-size: cover
                
             }
+
             .action__hiddenField {
-                /* Ocultamos el input de tipo "file" porque no podemos 
-                darle los estilos que queremos */
                 display: none;
             }
         }   
@@ -82,4 +84,8 @@
     .error-image{
         margin: 12px 0 0px 0;
     }
+}
+
+.able {
+    border:1px solid $color-hospital-green;
 }
