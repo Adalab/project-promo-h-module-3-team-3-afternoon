@@ -30,6 +30,16 @@ class CardMaker extends React.Component {
             validGithub: '',
             isFormValid:''
         };
+        this.userInfo = {
+            "palette": "",
+            "name": "",
+            "job": "",
+            "phone": "",
+            "email": "",
+            "linkedin": "",
+            "github": "",
+            "photo": ""
+        }
         this.collapseSection = this.collapseSection.bind(this);
         this.handleNameChange = this.handleNameChange.bind(this);
         this.handlePaletteChange = this.handlePaletteChange.bind(this);
@@ -37,7 +47,22 @@ class CardMaker extends React.Component {
         this.updateAvatar = this.updateAvatar.bind(this);
         this.validateForm = this.validateForm.bind(this);
         this.isFormValid = this.isFormValid.bind(this);
+        this.setData = this.setData.bind(this);
+        this.getData = this.getData.bind(this);
     }
+
+    setData(){
+        const data = this.userInfo;
+        localStorage.setItem('data', JSON.stringify(data));
+        console.log(data);
+    }
+    getData = () => {
+        const data = JSON.parse(localStorage.getItem('data'));
+        this.handlePaletteChange();
+        this.handleNameChange();
+        this.handleLinksChange();
+    }
+
 
     collapseSection(target){
 
