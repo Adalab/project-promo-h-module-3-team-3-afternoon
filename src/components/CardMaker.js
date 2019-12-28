@@ -9,6 +9,8 @@ import defaultImage from './defaultImage';
 class CardMaker extends React.Component {
     constructor(props) {
         super(props);
+        const localStorageData = this.getData()
+        this.state = localStorageData === null ? this.getInitialState() : localStorageData;
         this.state = {
             open: 'design',
             userName: '',
@@ -20,7 +22,7 @@ class CardMaker extends React.Component {
             github: '',
             isAvatarDefault: true,
             profile: {
-              avatar: defaultImage
+                avatar: defaultImage
             },
             validUserName: '',
             validPosition: '',
@@ -28,8 +30,11 @@ class CardMaker extends React.Component {
             validEmail: '',
             validLinkedin: '',
             validGithub: '',
-            isFormValid:''
+            isFormValid: ''
         };
+        this.saveData = this.saveData.bind(this);
+        this.clearForm = this.clearForm.bind(this);
+        this.resetData = this.resetData.bind(this);
         this.collapseSection = this.collapseSection.bind(this);
         this.handleNameChange = this.handleNameChange.bind(this);
         this.handlePaletteChange = this.handlePaletteChange.bind(this);
@@ -38,10 +43,9 @@ class CardMaker extends React.Component {
         this.validateForm = this.validateForm.bind(this);
         this.isFormValid = this.isFormValid.bind(this);
     }
+    collapseSection(target) {
 
-    collapseSection(target){
-
-        if(this.state.open !== target.id){
+        if (this.state.open !== target.id) {
             this.setState({
                 open: target.id
             })
@@ -77,13 +81,13 @@ class CardMaker extends React.Component {
             [target.name]: target.value
         });
 
-        if(target.name === 'userName' && target.value !== ''){
+        if (target.name === 'userName' && target.value !== '') {
             this.setState({
                 validUserName: true
             })
         }
 
-        if(target.name === 'position' && target.value !== ''){
+        if (target.name === 'position' && target.value !== '') {
             this.setState({
                 validPosition: true
             })
@@ -95,19 +99,19 @@ class CardMaker extends React.Component {
             [target.name]: target.value
         })
 
-        if(target.name === 'email' && target.value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)){
+        if (target.name === 'email' && target.value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
             this.setState({
                 validEmail: true
             })
         }
 
-        if(target.name === 'linkedin' && target.value !== ''){
+        if (target.name === 'linkedin' && target.value !== '') {
             this.setState({
                 validLinkedin: true
             })
         }
 
-        if(target.name === 'github' && target.value !== ''){
+        if (target.name === 'github' && target.value !== '') {
             this.setState({
                 validGithub: true
             })
@@ -115,44 +119,87 @@ class CardMaker extends React.Component {
     }
 
     updateAvatar(img) {
-        const {profile} = this.state;
+        const { profile } = this.state;
         this.setState(prevState => {
-          const newProfile = {...profile, avatar: img};
-          return {
-            profile: newProfile,
-            isAvatarDefault: false,
-            validAvatar: true
-          }
+            const newProfile = { ...profile, avatar: img };
+            return {
+                profile: newProfile,
+                isAvatarDefault: false,
+                validAvatar: true
+            }
         });
+        this.saveData();
     };
+    clearForm() {
+        this.forceUpdate();
+        this.setState({
+            name: "",
+            job: "",
+            phone: "",
+            email: "",
+            linkedin: "",
+            github: "",
+            palette: "1",
+            isAvatarDefault: true,
+            profile: {
+                photo: defaultImage
+            }
+        });
+        this.resetData();
+    }
 
-    validateForm(){
-        if(this.state.userName === ''){
+    resetData() {
+        localStorage.clear();
+    }
+    updateEventInfo = event => {
+        let key = event.target.id;
+        let userInfo = event.target.value;
+        this.setState(
+            {
+                [key]: `${userInfo}`
+            },
+            this.saveData
+        );
+    };
+    componentDidMount() {
+        this.saveData();
+        this.getData();
+    }
+    saveData() {
+        localStorage.setItem("info", JSON.stringify(this.state));
+    }
+
+    getData() {
+        return JSON.parse(localStorage.getItem("info"));
+    }
+
+    validateForm() {
+        if (this.state.userName === '') {
             this.setState({
                 validUserName: false
             })
         }
-        if(this.state.position === ''){
+        if (this.state.position === '') {
             this.setState({
                 validPosition: false
             })
         }
-        if(this.state.isAvatarDefault === true){
+        if (this.state.isAvatarDefault === true) {
             this.setState({
                 validAvatar: false
             })
         }
-        if(this.state.email === '' || !this.state.email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)){
+        if (this.state.email === '' || !this.state.email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
             this.setState({
                 validEmail: false
             })
         }
-        if(this.state.linkedin === ''){
+        if (this.state.linkedin === '') {
             this.setState({
                 validLinkedin: false
             })
         }
-        if(this.state.github === ''){
+        if (this.state.github === '') {
             this.setState({
                 validGithub: false
             })
@@ -161,23 +208,23 @@ class CardMaker extends React.Component {
         this.isFormValid()
     }
 
-    isFormValid(){
-        if(
+    isFormValid() {
+        if (
             this.state.validUserName === true &&
             this.state.validPosition === true &&
             this.state.validAvatar === true &&
             this.state.validEmail === true &&
             this.state.validLinkedin === true &&
             this.state.validGithub === true
-            ){
-                this.setState({
-                    isFormValid: true
-                })
-            }
+        ) {
+            this.setState({
+                isFormValid: true
+            })
+        }
     }
 
     render() {
-        const {profile, isAvatarDefault} = this.state;
+        const { profile, isAvatarDefault } = this.state;
         return (
             <main className="main">
                 <Preview
@@ -188,7 +235,7 @@ class CardMaker extends React.Component {
                     phone={this.state.phone}
                     linkedin={this.state.linkedin}
                     github={this.state.github}
-                    avatar={profile.avatar} 
+                    avatar={profile.avatar}
                 />
                 <form className="form" action="" method="POST">
                     <Design
@@ -202,9 +249,9 @@ class CardMaker extends React.Component {
                         open={this.state.open}
                         handleNameChange={this.handleNameChange}
                         handleLinksChange={this.handleLinksChange}
-                        avatar={profile.avatar} 
-                        isAvatarDefault={isAvatarDefault} 
-                        updateAvatar={this.updateAvatar} 
+                        avatar={profile.avatar}
+                        isAvatarDefault={isAvatarDefault}
+                        updateAvatar={this.updateAvatar}
                         userName={this.state.userName}
                         position={this.state.position}
                         paletteValue={this.state.paletteValue}
