@@ -12,11 +12,13 @@ class Fill extends React.Component {
     handleNameChange(event){
         const target = event.target;
         this.props.handleNameChange(target);
+        this.props.setData();
     }
 
     handleLinksChange(event){
         const target = event.target;
         this.props.handleLinksChange(target);
+        this.props.setData();
     }
 
     render() {

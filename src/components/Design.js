@@ -10,6 +10,7 @@ class Design extends React.Component{
     handlePaletteChange(event){
         let checkedOption = event.target.value;
         this.props.handlePaletteChange(checkedOption);
+        this.props.setData();
     }
 
     render(){
