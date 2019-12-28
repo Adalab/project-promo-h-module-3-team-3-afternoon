@@ -31,14 +31,14 @@ class CardMaker extends React.Component {
             isFormValid:''
         };
         this.userInfo = {
-            "palette": "",
-            "name": "",
-            "job": "",
-            "phone": "",
-            "email": "",
-            "linkedin": "",
-            "github": "",
-            "photo": ""
+            "palette": this.state.paletteValue,
+            "name": this.state.userName,
+            "job": this.state.position,
+            "phone": this.state.phone,
+            "email": this.state.email,
+            "linkedin": this.state.linkedin,
+            "github": this.state.github,
+            "photo": this.state.profile
         }
         this.collapseSection = this.collapseSection.bind(this);
         this.handleNameChange = this.handleNameChange.bind(this);
@@ -80,6 +80,7 @@ class CardMaker extends React.Component {
     handlePaletteChange(checkedPaletteValue) {
 
         this.setState((prevState, props) => {
+            this.setData();
             let newPaletteValue = prevState.paletteValue;
             if (checkedPaletteValue === '1') {
                 newPaletteValue = '1'
@@ -101,6 +102,7 @@ class CardMaker extends React.Component {
         this.setState({
             [target.name]: target.value
         });
+        this.setData()
 
         if(target.name === 'userName' && target.value !== ''){
             this.setState({
@@ -118,7 +120,8 @@ class CardMaker extends React.Component {
     handleLinksChange(target) {
         this.setState({
             [target.name]: target.value
-        })
+        });
+        this.setData()
 
         if(target.name === 'email' && target.value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)){
             this.setState({
@@ -149,6 +152,7 @@ class CardMaker extends React.Component {
             validAvatar: true
           }
         });
+        this.setData()
     };
 
     validateForm(){
