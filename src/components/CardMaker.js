@@ -30,16 +30,7 @@ class CardMaker extends React.Component {
             validGithub: '',
             isFormValid:''
         };
-        this.userInfo = {
-            "palette": this.state.paletteValue,
-            "name": this.state.userName,
-            "job": this.state.position,
-            "phone": this.state.phone,
-            "email": this.state.email,
-            "linkedin": this.state.linkedin,
-            "github": this.state.github,
-            "photo": this.state.profile
-        }
+        this.userInfo = {};
         this.collapseSection = this.collapseSection.bind(this);
         this.handleNameChange = this.handleNameChange.bind(this);
         this.handlePaletteChange = this.handlePaletteChange.bind(this);
@@ -52,8 +43,18 @@ class CardMaker extends React.Component {
     }
 
     setData(){
-        const data = this.userInfo;
-        localStorage.setItem('data', JSON.stringify(data));
+        this.userInfo = {
+            "palette": this.state.paletteValue,
+            "name": this.state.userName,
+            "job": this.state.position,
+            "phone": this.state.phone,
+            "email": this.state.email,
+            "linkedin": this.state.linkedin,
+            "github": this.state.github,
+            "photo": this.state.profile.avatar
+        }
+
+        localStorage.setItem('data', JSON.stringify(this.userInfo));
     }
     getData = () => {
         const data = JSON.parse(localStorage.getItem('data'));
@@ -81,17 +82,6 @@ class CardMaker extends React.Component {
         
 
         this.setState((prevState, props) => {
-            this.userInfo = {
-                "palette": this.state.paletteValue,
-                "name": this.state.userName,
-                "job": this.state.position,
-                "phone": this.state.phone,
-                "email": this.state.email,
-                "linkedin": this.state.linkedin,
-                "github": this.state.github,
-                "photo": this.state.profile
-            }
-            this.setData();
             let newPaletteValue = prevState.paletteValue;
             if (checkedPaletteValue === '1') {
                 newPaletteValue = '1'
@@ -107,6 +97,8 @@ class CardMaker extends React.Component {
                 paletteValue: newPaletteValue
             }
         })
+        
+        this.setData();
     }
 
     handleNameChange(target) {
@@ -114,16 +106,7 @@ class CardMaker extends React.Component {
         this.setState({
             [target.name]: target.value
         });
-        this.userInfo = {
-            "palette": this.state.paletteValue,
-            "name": this.state.userName,
-            "job": this.state.position,
-            "phone": this.state.phone,
-            "email": this.state.email,
-            "linkedin": this.state.linkedin,
-            "github": this.state.github,
-            "photo": this.state.profile
-        }
+       
         this.setData()
 
         if(target.name === 'userName' && target.value !== ''){
@@ -143,16 +126,7 @@ class CardMaker extends React.Component {
         this.setState({
             [target.name]: target.value
         });
-        this.userInfo = {
-            "palette": this.state.paletteValue,
-            "name": this.state.userName,
-            "job": this.state.position,
-            "phone": this.state.phone,
-            "email": this.state.email,
-            "linkedin": this.state.linkedin,
-            "github": this.state.github,
-            "photo": this.state.profile
-        }
+
         this.setData()
 
         if(target.name === 'email' && target.value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)){
@@ -184,16 +158,7 @@ class CardMaker extends React.Component {
             validAvatar: true
           }
         });
-        this.userInfo = {
-            "palette": this.state.paletteValue,
-            "name": this.state.userName,
-            "job": this.state.position,
-            "phone": this.state.phone,
-            "email": this.state.email,
-            "linkedin": this.state.linkedin,
-            "github": this.state.github,
-            "photo": this.state.profile
-        }
+
         this.setData()
     };
 
