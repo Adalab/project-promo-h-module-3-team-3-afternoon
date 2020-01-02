@@ -30,6 +30,7 @@ class CardMaker extends React.Component {
             validGithub: '',
             isFormValid:''
         };
+        this.userInfo = {};
         this.collapseSection = this.collapseSection.bind(this);
         this.handleNameChange = this.handleNameChange.bind(this);
         this.handlePaletteChange = this.handlePaletteChange.bind(this);
@@ -37,6 +38,21 @@ class CardMaker extends React.Component {
         this.updateAvatar = this.updateAvatar.bind(this);
         this.validateForm = this.validateForm.bind(this);
         this.isFormValid = this.isFormValid.bind(this);
+        this.setData = this.setData.bind(this);
+    }
+
+    setData(){
+        this.userInfo = {
+            "palette": this.state.paletteValue,
+            "name": this.state.userName,
+            "job": this.state.position,
+            "phone": this.state.phone,
+            "email": this.state.email,
+            "linkedin": this.state.linkedin,
+            "github": this.state.github,
+            "photo": this.state.profile.avatar
+        }
+        localStorage.setItem('data', JSON.stringify(this.userInfo));
     }
 
     collapseSection(target){
@@ -73,6 +89,7 @@ class CardMaker extends React.Component {
     }
 
     handleNameChange(target) {
+
         this.setState({
             [target.name]: target.value
         });
@@ -93,7 +110,8 @@ class CardMaker extends React.Component {
     handleLinksChange(target) {
         this.setState({
             [target.name]: target.value
-        })
+        });
+
 
         if(target.name === 'email' && target.value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)){
             this.setState({
@@ -175,6 +193,32 @@ class CardMaker extends React.Component {
                 })
             }
     }
+    
+    componentDidMount(){
+        const data = JSON.parse(localStorage.getItem('data'));
+
+        if(data !== null){
+            this.setState({
+                userName: data.name,
+                position: data.job,
+                paletteValue: data.palette,
+                email: data.email,
+                phone: data.phone,
+                linkedin: data.linkedin,
+                github: data.github,
+                profile: {
+                    avatar: data.photo
+                },
+                isAvatarDefault: data.photo !== defaultImage ? false : true,
+                validAvatar: data.photo !== defaultImage ? true : false,
+                validUserName: data.name !== '' ? true : false,
+                validPosition: data.job !== '' ? true : false,
+                validEmail: data.email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i) ? true : false,
+                validLinkedin: data.linkedin !== '' ? true : false,
+                validGithub: data.github !== '' ? true : false,
+            })
+        }
+    }
 
     render() {
         const {profile, isAvatarDefault} = this.state;
@@ -196,14 +240,15 @@ class CardMaker extends React.Component {
                         open={this.state.open}
                         paletteValue={this.state.paletteValue}
                         handlePaletteChange={this.handlePaletteChange}
+                        setData={this.setData}
                     />
                     <Fill
                         collapseSection={this.collapseSection}
                         open={this.state.open}
                         handleNameChange={this.handleNameChange}
                         handleLinksChange={this.handleLinksChange}
-                        avatar={profile.avatar} 
-                        isAvatarDefault={isAvatarDefault} 
+                        avatar={this.state.profile.avatar} 
+                        isAvatarDefault={this.isAvatarDefault} 
                         updateAvatar={this.updateAvatar} 
                         userName={this.state.userName}
                         position={this.state.position}
@@ -218,6 +263,7 @@ class CardMaker extends React.Component {
                         validEmail={this.state.validEmail}
                         validLinkedin={this.state.validLinkedin}
                         validGithub={this.state.validGithub}
+                        setData={this.setData}
                     />
                     <Share
                         collapseSection={this.collapseSection}
