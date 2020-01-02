@@ -27,7 +27,7 @@ class Preview extends React.Component {
             <section className="page__cardpreview">
                 <div className="card__preview">
                     <div className={`card__box ${selectTheme()}`}>
-                        <button className="card__reset"><i className="far fa-trash-alt"></i>Reset</button>
+                        <button className="card__reset" onClick={this.props.resetForm}><i className="far fa-trash-alt"></i>Reset</button>
                         <div className="card__box--header">
                             <div className="card__box--text">
                                 <h3 className="card__name">{this.props.userName === '' ? 'Nombre Apellido' : this.props.userName}</h3>
