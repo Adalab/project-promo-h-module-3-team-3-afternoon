@@ -47,12 +47,9 @@ class CardMaker extends React.Component {
         this.updateAvatar = this.updateAvatar.bind(this);
         this.validateForm = this.validateForm.bind(this);
         this.isFormValid = this.isFormValid.bind(this);
-        //this.setData = this.setData.bind(this);
+        this.resetForm = this.resetForm.bind(this);
     }
 
-    // setData(){
-    //     localStorage.setItem('data', JSON.stringify(this.state.userInfo));
-    // }
 
     collapseSection(target){
 
@@ -232,6 +229,40 @@ class CardMaker extends React.Component {
                 })
             }
     }
+
+    resetForm(){
+        this.setState({
+            open: 'design',
+            userName: '',
+            position: '',
+            paletteValue: '1',
+            email: '',
+            phone: '',
+            linkedin: '',
+            github: '',
+            isAvatarDefault: true,
+            profile: {
+              avatar: defaultImage
+            },
+            validUserName: '',
+            validPosition: '',
+            validAvatar: '',
+            validEmail: '',
+            validLinkedin: '',
+            validGithub: '',
+            isFormValid:'',
+            userInfo: {
+                "palette": '',
+                "name": '',
+                "job": '',
+                "phone": '',
+                "email": '',
+                "linkedin": '',
+                "github": '',
+                "photo": ''
+            }
+        })
+    }
     
     componentDidMount(){
         const data = JSON.parse(localStorage.getItem('data'));
@@ -286,6 +317,7 @@ class CardMaker extends React.Component {
                     linkedin={this.state.linkedin}
                     github={this.state.github}
                     avatar={profile.avatar} 
+                    resetForm={this.resetForm}
                 />
                 <form className="form" action="" method="POST">
                     <Design
