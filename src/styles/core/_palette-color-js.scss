@@ -12,6 +12,10 @@
     }
     .item {
         border-color: $color-hospital-green;
+        
+        a i {
+            color: $color-dark-green-blue;
+        }
     }
 }
 
@@ -29,6 +33,10 @@
     }
     .item {
         border-color: $color-tomato;
+        
+        a i {
+            color: $color-dried-blood;
+        }
     }
 }
 
@@ -46,22 +54,9 @@
     }
     .item {
         border-color: $color-light-grey-blue;
-    }
-}
-
-.theme-colors4 {
-
-    .card__box--text {
-        border-color: $color-pink-coco;
-
-    }
-    .card__name {
-        color: $color-blue-coco;
-    }
-    .card__job-title {
-        color: $color-blue-coco;
-    }
-    .item {
-        border-color: $color-yelow-coco;
+        
+        a i {
+            color: $color-slate;
+        }
     }
 }

@@ -65,4 +65,10 @@ class Preview extends React.Component {
     }
 }
 
+Preview.defaultProps = {
+    userName: 'Nombre Apellido',
+    position: 'Front-End Developer',
+    paletteValue: '1'
+}
+
 export default Preview;
