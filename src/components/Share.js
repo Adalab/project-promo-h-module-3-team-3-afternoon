@@ -33,7 +33,6 @@ class Share extends React.Component {
                     <i className="far fa-address-card"></i>
                     <p className="share__create--title btn">crear tarjeta</p>
                 </button>
-                <div className="errorMessage"></div>
                 <div className={`card-loader ${this.props.isLoading === true ? '' : ' hidden'}`}><img className="card-loader__image" src={Loader}></img></div>
                 <div className={`form__create-link ${this.props.cardSuccess === true ? '' : ' hidden'}`} id="share-div">
                     <div className="share__create-card">
