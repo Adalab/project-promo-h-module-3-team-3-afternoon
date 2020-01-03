@@ -1,6 +1,7 @@
 import React from 'react';
 import Collapsibles from './Collapsibles';
 import GetAvatar from './GetAvatar';
+import PropTypes from 'prop-types';
 
 class Fill extends React.Component {
     constructor(props) {
@@ -66,6 +67,14 @@ class Fill extends React.Component {
             </Collapsibles>
         );
     }
+}
+
+Fill.propTypes = {
+    userName: PropTypes.string,
+    position: PropTypes.string,
+    phone: PropTypes.number,
+    linkedin: PropTypes.string,
+    github: PropTypes.string
 }
 
 export default Fill;
