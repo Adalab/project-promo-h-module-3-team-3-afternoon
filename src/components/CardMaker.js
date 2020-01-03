@@ -258,7 +258,7 @@ class CardMaker extends React.Component {
             validGithub: '',
             isFormValid:'',
             userInfo: {
-                "palette": '',
+                "palette": '1',
                 "name": '',
                 "job": '',
                 "phone": '',
@@ -293,7 +293,7 @@ class CardMaker extends React.Component {
                 validLinkedin: data.linkedin !== '' ? true : false,
                 validGithub: data.github !== '' ? true : false,
                 userInfo: {
-                    "palette": data.palette,
+                    "palette": data.palette !=='' ?data.palette : '1',
                     "name": data.name,
                     "job": data.job,
                     "phone": data.phone,
