@@ -4,6 +4,7 @@ import Design from './Design';
 import Fill from './Fill';
 import Share from './Share';
 import defaultImage from './defaultImage';
+import {fetchCardData} from '../services/CardService';
 
 
 class CardMaker extends React.Component {
@@ -38,7 +39,10 @@ class CardMaker extends React.Component {
                 "linkedin": '',
                 "github": '',
                 "photo": ''
-            }
+            },
+            cardURL: '',
+            isLoading: false,
+            cardSuccess: ''
         };
         this.collapseSection = this.collapseSection.bind(this);
         this.handleNameChange = this.handleNameChange.bind(this);
@@ -48,6 +52,8 @@ class CardMaker extends React.Component {
         this.validateForm = this.validateForm.bind(this);
         this.isFormValid = this.isFormValid.bind(this);
         this.resetForm = this.resetForm.bind(this);
+        this.fetchCardData = this.fetchCardData.bind(this);
+        this.setURL = this.setURL.bind(this);
     }
 
 
@@ -252,7 +258,7 @@ class CardMaker extends React.Component {
             validGithub: '',
             isFormValid:'',
             userInfo: {
-                "palette": '',
+                "palette": '1',
                 "name": '',
                 "job": '',
                 "phone": '',
@@ -287,7 +293,7 @@ class CardMaker extends React.Component {
                 validLinkedin: data.linkedin !== '' ? true : false,
                 validGithub: data.github !== '' ? true : false,
                 userInfo: {
-                    "palette": data.palette,
+                    "palette": data.palette !=='' ?data.palette : '1',
                     "name": data.name,
                     "job": data.job,
                     "phone": data.phone,
@@ -295,13 +301,40 @@ class CardMaker extends React.Component {
                     "linkedin": data.linkedin,
                     "github": data.github,
                     "photo": data.photo !== '' ? data.photo : defaultImage
-                }
+                },
+                cardURL: ''
             })
         }
     }
 
     componentDidUpdate(){
         localStorage.setItem('data', JSON.stringify(this.state.userInfo));
+    }
+
+    fetchCardData(){
+        const json = JSON.parse(localStorage.getItem('data'));
+        fetchCardData(json)
+        .then(result => this.setURL(result))
+        .catch(error => console.log(error));
+
+        this.setState({
+            isLoading: true
+        })
+    }
+
+    setURL(result){
+        if(result.success){
+            this.setState({
+                cardURL: result.cardURL,
+                isLoading: false,
+                cardSuccess: true
+            })
+        } else {
+            this.setState({
+                cardURL: 'ERROR:' + result.error,
+                isLoading: false
+            })
+        }
     }
 
     render() {
@@ -353,6 +386,10 @@ class CardMaker extends React.Component {
                         open={this.state.open}
                         validateForm={this.validateForm}
                         isFormValid={this.state.isFormValid}
+                        cardURL={this.state.cardURL}
+                        fetchCardData={this.fetchCardData}
+                        cardSuccess={this.state.cardSuccess}
+                        isLoading={this.state.isLoading}
                     />
                 </form>
             </main>
