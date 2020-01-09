@@ -265,7 +265,7 @@ class CardMaker extends React.Component {
                 "email": '',
                 "linkedin": '',
                 "github": '',
-                "photo": ''
+                "photo": defaultImage
             }
         })
     }
@@ -309,6 +309,7 @@ class CardMaker extends React.Component {
 
     componentDidUpdate(){
         localStorage.setItem('data', JSON.stringify(this.state.userInfo));
+
     }
 
     fetchCardData(){
