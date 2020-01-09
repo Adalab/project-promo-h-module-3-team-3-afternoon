@@ -1,14 +1,11 @@
 import React from 'react';
 import Collapsibles from './Collapsibles';
 import Loader from '../images/loader-card.svg';
-
 class Share extends React.Component {
     constructor(props) {
         super(props);
-
         this.fetchCardData = this.fetchCardData.bind(this);
     }
-
     fetchCardData(event){
         if(this.props.isFormValid === true){
             this.props.fetchCardData()
@@ -16,9 +13,7 @@ class Share extends React.Component {
             event.preventDefault();
         }
     }
-
     render() {
-
         return (
             <Collapsibles
                 collapseSection={this.props.collapseSection}
@@ -33,7 +28,7 @@ class Share extends React.Component {
                     <i className="far fa-address-card"></i>
                     <p className="share__create--title btn">crear tarjeta</p>
                 </button>
-                <p className={`error-message ${this.props.isFormValid === false ? '' : ' hidden'}`}>Por favor, rellena todos los campos obligatorios.</p>
+                <p className={`error-message ${this.props.isFormValid === true ? ' hidden' : ''}`}>Por favor, revisa que has rellenado el formulario correctamente.</p>
                 <div className={`card-loader ${this.props.isLoading === true ? '' : ' hidden'}`}><img className="card-loader__image" src={Loader}></img></div>
                 <div className={`form__create-link ${this.props.cardSuccess === true ? '' : ' hidden'}`} id="share-div">
                     <div className="share__create-card">
@@ -46,5 +41,4 @@ class Share extends React.Component {
         )
     }
 }
-
 export default Share;
