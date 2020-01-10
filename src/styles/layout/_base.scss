@@ -3,6 +3,12 @@ html{
     font-family: $font-family-general;
 }
 
+.App{
+    @include desktop{
+        overflow: hidden;
+    }
+}
+
 .page{
     height: 100vh;
     display: flex;
