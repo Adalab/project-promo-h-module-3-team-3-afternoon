@@ -4,6 +4,7 @@
     flex-direction: column;
     align-items: center;
     
+
     &__copy{
     font-family: $font-family-general;
     color:$color-brownish-grey;
@@ -15,14 +16,20 @@
         width:103px;
         height: 40px;
     }   
-    
+    .coco-logo{
+        width: 150px;
+        margin-bottom: 10px;
+    }
     @include tablet {
         flex-direction: row;
         justify-content: space-between;
-        padding: 7px 40px; 
+        padding: 8px 40px; 
+        .coco-logo{
+            margin-bottom: 0px;
+        }
     }
     
     @include desktop{
-        padding:7px 40px;
+        padding:9px 40px;
     }
 }

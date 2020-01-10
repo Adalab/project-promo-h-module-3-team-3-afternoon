@@ -1,11 +1,14 @@
 import React from 'react';
 import Collapsibles from './Collapsibles';
 import Loader from '../images/loader-card.svg';
+
 class Share extends React.Component {
     constructor(props) {
         super(props);
+
         this.fetchCardData = this.fetchCardData.bind(this);
     }
+
     fetchCardData(event){
         if(this.props.isFormValid === true){
             this.props.fetchCardData()
@@ -13,7 +16,9 @@ class Share extends React.Component {
             event.preventDefault();
         }
     }
+
     render() {
+
         return (
             <Collapsibles
                 collapseSection={this.props.collapseSection}
@@ -41,4 +46,5 @@ class Share extends React.Component {
         )
     }
 }
+
 export default Share;
