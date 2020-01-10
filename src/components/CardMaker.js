@@ -12,17 +12,10 @@ class CardMaker extends React.Component {
         super(props);
         this.state = {
             open: 'design',
-            userName: '',
-            position: '',
-            paletteValue: '1',
-            email: '',
-            phone: '',
-            linkedin: '',
-            github: '',
-            isAvatarDefault: true,
             profile: {
               avatar: defaultImage
             },
+            isAvatarDefault: true,
             validUserName: '',
             validPosition: '',
             validAvatar: '',
@@ -38,7 +31,7 @@ class CardMaker extends React.Component {
                 "email": '',
                 "linkedin": '',
                 "github": '',
-                "photo": ''
+                "photo": defaultImage
             },
             cardURL: '',
             isLoading: false,
@@ -86,7 +79,6 @@ class CardMaker extends React.Component {
                 newPaletteValue = '3'
             }
             return {
-                paletteValue: newPaletteValue,
                 userInfo: { ...newUserInfo, "palette": newPaletteValue}
             }
 
@@ -95,53 +87,52 @@ class CardMaker extends React.Component {
 
     handleNameChange(target) {
 
-        this.setState({
-            [target.name]: target.value,
-        });
+        if(target.name === 'userName'){
+            this.setState(prevState => {
+                let newUserInfo = prevState.userInfo;
+                return {userInfo: { ...newUserInfo, "name": target.value}}
+            });
 
-        if(target.name === 'userName' && target.value !== ''){
-            this.setState((prevState, props) => {
-                let newUserInfo = prevState.userInfo
-
-                return({
+            if(target.value !== ''){
+                this.setState({
                     validUserName: true,
-                    userInfo: {...newUserInfo, "name": target.value}
                 })
-            })
-        }
+            }
+        } 
 
-        if(target.name === 'position' && target.value !== ''){
-            this.setState((prevState, props) => {
-                let newUserInfo = prevState.userInfo
+        if(target.name === 'position'){
+            this.setState(prevState => {
+                let newUserInfo = prevState.userInfo;
+                return {userInfo: { ...newUserInfo, "job": target.value}}
+            });
 
-                return({
+            if(target.value !== ''){
+                this.setState({
                     validPosition: true,
-                    userInfo: {...newUserInfo, "job": target.value}
                 })
-            })
+            }
         }
     }
 
     handleLinksChange(target) {
-        this.setState({
-            [target.name]: target.value
-        });
 
+        if(target.name === 'email'){
 
-        if(target.name === 'email' && target.value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)){
-            this.setState((prevState, props) => {
-                let newUserInfo = prevState.userInfo
+            this.setState(prevState => {
+                let newUserInfo = prevState.userInfo;
+                return {userInfo: { ...newUserInfo, "email": target.value}}
+            });
 
-                return({
+            if(target.value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)){
+                this.setState({
                     validEmail: true,
-                    userInfo: {...newUserInfo, "email": target.value}
                 })
-            })
+            } 
         }
 
-        if(target.name === 'phone' && target.value !== ''){
-            this.setState((prevState, props) => {
-                let newUserInfo = prevState.userInfo
+        if(target.name === 'phone'){
+            this.setState(prevState => {
+                let newUserInfo = prevState.userInfo;
 
                 return({
                     userInfo: {...newUserInfo, "phone": target.value}
@@ -149,26 +140,30 @@ class CardMaker extends React.Component {
             })
         }
 
-        if(target.name === 'linkedin' && target.value !== ''){
-            this.setState((prevState, props) => {
-                let newUserInfo = prevState.userInfo
+        if(target.name === 'linkedin'){
+            this.setState(prevState => {
+                let newUserInfo = prevState.userInfo;
+                return {userInfo: { ...newUserInfo, "linkedin": target.value}}
+            });
 
-                return({
+            if(target.value !== ''){
+                this.setState({
                     validLinkedin: true,
-                    userInfo: {...newUserInfo, "linkedin": target.value}
                 })
-            })
+            } 
         }
 
-        if(target.name === 'github' && target.value !== ''){
-            this.setState((prevState, props) => {
-                let newUserInfo = prevState.userInfo
+        if(target.name === 'github'){
+            this.setState(prevState => {
+                let newUserInfo = prevState.userInfo;
+                return {userInfo: { ...newUserInfo, "github": target.value}}
+            });
 
-                return({
+            if(target.value !== ''){
+                this.setState({
                     validGithub: true,
-                    userInfo: {...newUserInfo, "github": target.value}
                 })
-            })
+            } 
         }
     }
 
@@ -239,13 +234,6 @@ class CardMaker extends React.Component {
     resetForm(){
         this.setState({
             open: 'design',
-            userName: '',
-            position: '',
-            paletteValue: '1',
-            email: '',
-            phone: '',
-            linkedin: '',
-            github: '',
             isAvatarDefault: true,
             profile: {
               avatar: defaultImage
@@ -275,13 +263,6 @@ class CardMaker extends React.Component {
 
         if(data !== null){
             this.setState({
-                userName: data.name,
-                position: data.job,
-                paletteValue: data.palette,
-                email: data.email,
-                phone: data.phone,
-                linkedin: data.linkedin,
-                github: data.github,
                 profile: {
                     avatar: data.photo
                 },
@@ -343,13 +324,13 @@ class CardMaker extends React.Component {
         return (
             <main className="main">
                 <Preview
-                    userName={this.state.userName}
-                    position={this.state.position}
-                    paletteValue={this.state.paletteValue}
-                    email={this.state.email}
-                    phone={this.state.phone}
-                    linkedin={this.state.linkedin}
-                    github={this.state.github}
+                    userName={this.state.userInfo.name}
+                    position={this.state.userInfo.job}
+                    paletteValue={this.state.userInfo.palette}
+                    email={this.state.userInfo.email}
+                    phone={this.state.userInfo.phone}
+                    linkedin={this.state.userInfo.linkedin}
+                    github={this.state.userInfo.github}
                     avatar={profile.avatar} 
                     resetForm={this.resetForm}
                 />
@@ -357,7 +338,7 @@ class CardMaker extends React.Component {
                     <Design
                         collapseSection={this.collapseSection}
                         open={this.state.open}
-                        paletteValue={this.state.paletteValue}
+                        paletteValue={this.state.userInfo.palette}
                         handlePaletteChange={this.handlePaletteChange}
                     />
                     <Fill
@@ -368,13 +349,12 @@ class CardMaker extends React.Component {
                         avatar={this.state.profile.avatar} 
                         isAvatarDefault={this.isAvatarDefault} 
                         updateAvatar={this.updateAvatar} 
-                        userName={this.state.userName}
-                        position={this.state.position}
-                        paletteValue={this.state.paletteValue}
-                        email={this.state.email}
-                        phone={this.state.phone}
-                        linkedin={this.state.linkedin}
-                        github={this.state.github}
+                        userName={this.state.userInfo.name}
+                        position={this.state.userInfo.job}
+                        email={this.state.userInfo.email}
+                        phone={this.state.userInfo.phone}
+                        linkedin={this.state.userInfo.linkedin}
+                        github={this.state.userInfo.github}
                         validUserName={this.state.validUserName}
                         validPosition={this.state.validPosition}
                         validAvatar={this.state.validAvatar}

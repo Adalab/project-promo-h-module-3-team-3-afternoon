@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import defaultImage from './defaultImage';
 
 class Preview extends React.Component {
     constructor(props) {
@@ -26,7 +26,7 @@ class Preview extends React.Component {
         return(
             <section className="page__cardpreview">
                 <div className="card__preview">
-                    <div className={`card__box ${selectTheme()}`}>
+                    <div className={`card__box theme-colors1 ${selectTheme()}`}>
                         <button className="card__reset" onClick={this.props.resetForm}><i className="far fa-trash-alt"></i>Reset</button>
                         <div className="card__box--header">
                             <div className="card__box--text">
@@ -68,7 +68,8 @@ class Preview extends React.Component {
 Preview.defaultProps = {
     userName: 'Nombre Apellido',
     position: 'Front-End Developer',
-    paletteValue: '1'
+    paletteValue: '1',
+    avatar: defaultImage
 }
 
 export default Preview;
