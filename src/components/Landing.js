@@ -1,11 +1,10 @@
 import React from 'react';
 import Logo from '../images/awesome-cards.svg';
 import { Link } from 'react-router-dom';
-import Footer from './Footer';
 
 const Landing = () => {
     return (
-        <div>
+        <React.Fragment>
             <main className="page__main">
                 <div className="head__awesome-logo">
                     <a href="https://github.com/Adalab/project-promo-h-module-2-team-4-afternoon">
@@ -33,8 +32,7 @@ const Landing = () => {
                 </ul>
                 <Link className="main__link" to="/Editor">comenzar</Link>
             </main>
-            <Footer />
-        </div>
+        </React.Fragment>
     );
 }
 
