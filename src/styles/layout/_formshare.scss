@@ -104,6 +104,7 @@
             width: 30px;
             animation-name: loader;
             animation-duration: 3s;
+            -moz-animation-iteration-count: infinite;
         }
     }
 }

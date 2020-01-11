@@ -1,40 +1,33 @@
 import React from 'react';
 
-class Collapsibles extends React.Component{
-    constructor(props){
-        super(props);
-        this.collapseSection = this.collapseSection.bind(this);
-        this.validateForm = this.validateForm.bind(this)
+const Collapsibles = props => {
+
+    const collapseSection = event => {
+        const target = event.target;
+        props.collapseSection(target)
+        validateForm();
     }
 
-    collapseSection(event){
-        const target = event.target
-        this.props.collapseSection(target)
-        this.validateForm();
-    }
-
-    validateForm(){
-        if(this.props.category === 'share'){
-            this.props.validateForm();
+    const validateForm = () => {
+        if(props.category === 'share'){
+            props.validateForm();
         }
     }
 
-    render(){
-        return(
-            <fieldset className="form__header">
-            <div className="form__title" id={this.props.category} onClick={this.collapseSection}>
+    return(
+        <fieldset className="form__header">
+            <div className="form__title" id={props.category} onClick={collapseSection}>
                 <div className="form__contain--title">
-                    <i className={`form__img ${this.props.icon}`}></i>
-                    <h3 className="form__title">{this.props.sectionTitle}</h3>
+                    <i className={`form__img ${props.icon}`}></i>
+                    <h3 className="form__title">{props.sectionTitle}</h3>
                 </div>
-                <i className={`fas fa-chevron-down design__img-arrow click-arrow ${this.props.open === this.props.category ? ' animate' : ''}`}></i>
+                <i className={`fas fa-chevron-down design__img-arrow click-arrow ${props.open === props.category ? ' animate' : ''}`}></i>
             </div>
-            <div className={`form-bottom ${this.props.lowerSection} ${this.props.open === this.props.category ? 'form-bottom-collapse' : ''}`}>
-                {this.props.children}
+            <div className={`form-bottom ${props.lowerSection} ${props.open === props.category ? 'form-bottom-collapse' : ''}`}>
+                {props.children}
             </div>
         </fieldset>
-        )
-    }
+    );
 }
 
 Collapsibles.defaultProps={

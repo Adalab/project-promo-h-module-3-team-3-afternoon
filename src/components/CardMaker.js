@@ -12,6 +12,16 @@ class CardMaker extends React.Component {
         super(props);
         this.state = {
             open: 'design',
+            userInfo: {
+                "palette": '',
+                "name": '',
+                "job": '',
+                "phone": '',
+                "email": '',
+                "linkedin": '',
+                "github": '',
+                "photo": defaultImage
+            },
             profile: {
               avatar: defaultImage
             },
@@ -23,16 +33,6 @@ class CardMaker extends React.Component {
             validLinkedin: '',
             validGithub: '',
             isFormValid:'',
-            userInfo: {
-                "palette": '',
-                "name": '',
-                "job": '',
-                "phone": '',
-                "email": '',
-                "linkedin": '',
-                "github": '',
-                "photo": defaultImage
-            },
             cardURL: '',
             isLoading: false,
             cardSuccess: ''
@@ -97,6 +97,10 @@ class CardMaker extends React.Component {
                 this.setState({
                     validUserName: true,
                 })
+            } else {
+                this.setState({
+                validUserName: false,
+                })
             }
         } 
 
@@ -109,6 +113,10 @@ class CardMaker extends React.Component {
             if(target.value !== ''){
                 this.setState({
                     validPosition: true,
+                })
+            } else {
+                this.setState({
+                validPosition: false,
                 })
             }
         }
@@ -127,7 +135,11 @@ class CardMaker extends React.Component {
                 this.setState({
                     validEmail: true,
                 })
-            } 
+            }  else {
+                this.setState({
+                validEmail: false,
+                })
+            }
         }
 
         if(target.name === 'phone'){
@@ -150,7 +162,11 @@ class CardMaker extends React.Component {
                 this.setState({
                     validLinkedin: true,
                 })
-            } 
+            }  else {
+                this.setState({
+                validLinkedin: false,
+                })
+            }
         }
 
         if(target.name === 'github'){
@@ -163,7 +179,11 @@ class CardMaker extends React.Component {
                 this.setState({
                     validGithub: true,
                 })
-            } 
+            }  else {
+                this.setState({
+                validGithub: false,
+                })
+            }
         }
     }
 
@@ -182,12 +202,12 @@ class CardMaker extends React.Component {
     };
 
     validateForm(){
-        if(this.state.userName === ''){
+        if(this.state.userInfo.name === ''){
             this.setState({
                 validUserName: false
             })
         }
-        if(this.state.position === ''){
+        if(this.state.userInfo.job === ''){
             this.setState({
                 validPosition: false
             })
@@ -197,17 +217,17 @@ class CardMaker extends React.Component {
                 validAvatar: false
             })
         }
-        if(this.state.email === '' || !this.state.email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)){
+        if(this.state.userInfo.email === '' || !this.state.userInfo.email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)){
             this.setState({
                 validEmail: false
             })
         }
-        if(this.state.linkedin === ''){
+        if(this.state.userInfo.linkedin === ''){
             this.setState({
                 validLinkedin: false
             })
         }
-        if(this.state.github === ''){
+        if(this.state.userInfo.github === ''){
             this.setState({
                 validGithub: false
             })
@@ -218,22 +238,36 @@ class CardMaker extends React.Component {
 
     isFormValid(){
         if(
-            this.state.validUserName === true &&
-            this.state.validPosition === true &&
-            this.state.validAvatar === true &&
-            this.state.validEmail === true &&
-            this.state.validLinkedin === true &&
-            this.state.validGithub === true
-            ){
-                this.setState({
-                    isFormValid: true
-                })
-            }
+        this.state.validUserName === true &&
+        this.state.validPosition === true &&
+        this.state.validAvatar === true &&
+        this.state.validEmail === true &&
+        this.state.validLinkedin === true &&
+        this.state.validGithub === true
+        ){
+            this.setState({
+                isFormValid: true
+            })
+        } else {
+            this.setState({
+                isFormValid: false
+            })
+        }
     }
 
     resetForm(){
         this.setState({
             open: 'design',
+            userInfo: {
+                "palette": '1',
+                "name": '',
+                "job": '',
+                "phone": '',
+                "email": '',
+                "linkedin": '',
+                "github": '',
+                "photo": defaultImage
+            },
             isAvatarDefault: true,
             profile: {
               avatar: defaultImage
@@ -244,17 +278,7 @@ class CardMaker extends React.Component {
             validEmail: '',
             validLinkedin: '',
             validGithub: '',
-            isFormValid:'',
-            userInfo: {
-                "palette": '1',
-                "name": '',
-                "job": '',
-                "phone": '',
-                "email": '',
-                "linkedin": '',
-                "github": '',
-                "photo": defaultImage
-            }
+            isFormValid:''
         })
     }
     
@@ -263,16 +287,6 @@ class CardMaker extends React.Component {
 
         if(data !== null){
             this.setState({
-                profile: {
-                    avatar: data.photo
-                },
-                isAvatarDefault: data.photo !== defaultImage ? false : true,
-                validAvatar: data.photo !== defaultImage ? true : false,
-                validUserName: data.name !== '' ? true : false,
-                validPosition: data.job !== '' ? true : false,
-                validEmail: data.email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i) ? true : false,
-                validLinkedin: data.linkedin !== '' ? true : false,
-                validGithub: data.github !== '' ? true : false,
                 userInfo: {
                     "palette": data.palette !=='' ?data.palette : '1',
                     "name": data.name,
@@ -283,6 +297,16 @@ class CardMaker extends React.Component {
                     "github": data.github,
                     "photo": data.photo !== '' ? data.photo : defaultImage
                 },
+                profile: {
+                    avatar: data.photo
+                },
+                isAvatarDefault: data.photo !== defaultImage ? false : true,
+                validAvatar: data.photo !== defaultImage ? true : false,
+                validUserName: data.name !== '' ? true : false,
+                validPosition: data.job !== '' ? true : false,
+                validEmail: data.email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i) ? true : false,
+                validLinkedin: data.linkedin !== '' ? true : false,
+                validGithub: data.github !== '' ? true : false,
                 cardURL: ''
             })
         }
@@ -320,57 +344,58 @@ class CardMaker extends React.Component {
     }
 
     render() {
-        const {profile, isAvatarDefault} = this.state;
+        const {userInfo, profile, open, validUserName, validPosition, validAvatar, validEmail, validLinkedin, validGithub, isFormValid, cardURL, cardSuccess, isLoading} = this.state;
+
         return (
             <main className="main">
                 <Preview
-                    userName={this.state.userInfo.name}
-                    position={this.state.userInfo.job}
-                    paletteValue={this.state.userInfo.palette}
-                    email={this.state.userInfo.email}
-                    phone={this.state.userInfo.phone}
-                    linkedin={this.state.userInfo.linkedin}
-                    github={this.state.userInfo.github}
+                    userName={userInfo.name}
+                    position={userInfo.job}
+                    paletteValue={userInfo.palette}
+                    email={userInfo.email}
+                    phone={userInfo.phone}
+                    linkedin={userInfo.linkedin}
+                    github={userInfo.github}
                     avatar={profile.avatar} 
                     resetForm={this.resetForm}
                 />
                 <form className="form" action="" method="POST">
                     <Design
                         collapseSection={this.collapseSection}
-                        open={this.state.open}
-                        paletteValue={this.state.userInfo.palette}
+                        open={open}
+                        paletteValue={userInfo.palette}
                         handlePaletteChange={this.handlePaletteChange}
                     />
                     <Fill
                         collapseSection={this.collapseSection}
-                        open={this.state.open}
+                        open={open}
                         handleNameChange={this.handleNameChange}
                         handleLinksChange={this.handleLinksChange}
-                        avatar={this.state.profile.avatar} 
+                        avatar={profile.avatar} 
                         isAvatarDefault={this.isAvatarDefault} 
                         updateAvatar={this.updateAvatar} 
-                        userName={this.state.userInfo.name}
-                        position={this.state.userInfo.job}
-                        email={this.state.userInfo.email}
-                        phone={this.state.userInfo.phone}
-                        linkedin={this.state.userInfo.linkedin}
-                        github={this.state.userInfo.github}
-                        validUserName={this.state.validUserName}
-                        validPosition={this.state.validPosition}
-                        validAvatar={this.state.validAvatar}
-                        validEmail={this.state.validEmail}
-                        validLinkedin={this.state.validLinkedin}
-                        validGithub={this.state.validGithub}
+                        userName={userInfo.name}
+                        position={userInfo.job}
+                        email={userInfo.email}
+                        phone={userInfo.phone}
+                        linkedin={userInfo.linkedin}
+                        github={userInfo.github}
+                        validUserName={validUserName}
+                        validPosition={validPosition}
+                        validAvatar={validAvatar}
+                        validEmail={validEmail}
+                        validLinkedin={validLinkedin}
+                        validGithub={validGithub}
                     />
                     <Share
                         collapseSection={this.collapseSection}
-                        open={this.state.open}
+                        open={open}
                         validateForm={this.validateForm}
-                        isFormValid={this.state.isFormValid}
-                        cardURL={this.state.cardURL}
+                        isFormValid={isFormValid}
+                        cardURL={cardURL}
                         fetchCardData={this.fetchCardData}
-                        cardSuccess={this.state.cardSuccess}
-                        isLoading={this.state.isLoading}
+                        cardSuccess={cardSuccess}
+                        isLoading={isLoading}
                     />
                 </form>
             </main>

@@ -8,7 +8,8 @@ const Header = () => {
             <div className="header">
                 <Link to="/"><img src={Logo} alt="logo" className="header__image" /></Link>
             </div>
-        </header>)
+        </header>
+    );
 };
 
 export default Header;
