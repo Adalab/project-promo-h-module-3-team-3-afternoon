@@ -25,7 +25,7 @@ If you want to play around with our project, please visit [our Github repository
 
 `$ npm install`
 
-`$ npm start``
+`$ npm start`
 
 * You can also create a `docs` folder by running `npm run build`on your terminal and then `mv build docs`.
 
