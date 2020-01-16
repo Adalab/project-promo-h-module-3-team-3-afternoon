@@ -1,11 +1,11 @@
 
 # Awesome Profile Cards.
-![APC2-home](APC-home.png)
+![APC-home](APC2-home.png)
 This is another of our projects at [Adalab](https://adalab.es/). It is a simple app that allows the user to create a digital business card with their full name, position and links to their contact details and social network profiles.
 We are a team of four students and we had to migrate a vanilla javascript version of the app to React. One of the key features we had to achieve was to connect to a third party API to store the user's data and create the link to the card.
 [This](https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/-LxBP-zwF7FL9GtaPOuF) is an example of a business card created with our app. [Why not create yours as well?!](http://beta.adalab.es/project-promo-h-module-3-team-3-afternoon/)
 
-![APC2-design](APC-design.png)
+![APC-design](APC2-design.png)
 
 ----
 
