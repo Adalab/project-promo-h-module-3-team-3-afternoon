@@ -1,68 +1,64 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Awesome Profile Cards.
+![APC2-home](APC-home.png)
+This is another of our projects at [Adalab](https://adalab.es/). It is a simple app that allows the user to create a digital business card with their full name, position and links to their contact details and social network profiles.
+We are a team of four students and we had to migrate a vanilla javascript version of the app to React. One of the key features we had to achieve was to connect to a third party API to store the user's data and create the link to the card.
+[This](https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/-LxBP-zwF7FL9GtaPOuF) is an example of a business card created with our app. [Why not create yours as well?!](http://beta.adalab.es/project-promo-h-module-3-team-3-afternoon/)
 
-In the project directory, you can run:
+![APC2-design](APC-design.png)
 
-### `npm start`
+----
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Getting started
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+If you want to play around with our project, please visit [our Github repository](https://github.com/Adalab/project-promo-h-module-3-team-3-afternoon) to clone or download it.
+* To clone it: copy this [link](https://github.com/Adalab/project-promo-h-module-3-team-3-afternoon.git) and go to your terminal. Once on the terminal, navigate to the directory where you want to install it and use the command:
 
-### `npm test`
+```$ git clone https://github.com/Adalab/project-promo-h-module-3-team-3-afternoon.git```
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* To download it: you can download the zip version using the clone or download tab on the repository and unzip it in your local directory.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Installing
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+* On your terminal, make sure you are in your *awesome-profile-cards* folder and run the commands:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`$ npm install`
 
-### `npm run eject`
+`$ npm start``
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* You can also create a `docs` folder by running `npm run build`on your terminal and then `mv build docs`.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Technologies
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+* HTML 5.
+* CSS - SCSS.
+* React.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Team
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+We are a team of four women from very different backgrounds that came together through Adalab Bootcamp in Madrid and this is our last project. We are [Emeli Orbe](https://github.com/emeorbe), [Marian González](https://github.com/gonzalez-marian), [Mariana Lerma](https://github.com/marianalfr), and [Marta Cruces](https://github.com/martacruces).
 
-### Code Splitting
+### MIT License.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Copyright (c) 2019 Queremos ser millonarias.
 
-### Analyzing the Bundle Size
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
